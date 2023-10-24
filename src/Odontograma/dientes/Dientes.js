@@ -31,7 +31,7 @@ export default function Dientes({
 }) {
     return (
         <>
-            <Box sx={{ display: "flex", position: "relative", zIndex: "1"}}>
+            <Box sx={{ display: "flex", position: "relative", zIndex: "1", border: "1px solid black", borderLeft: "none", borderRadius: "10px" }} >
                 <Box sx={{ border: "1px solid black", padding: "5px", borderRadius: "5px", marginLeft: "5px", minHeight: "600px" }}>
                     <Selections handleSlection={handleSlection} selectExtra={selectExtra} handleSelectChange={handleSelectChange} />
                 </Box>
@@ -183,7 +183,7 @@ export default function Dientes({
                     {/* Fin Dientes de leche */}
                 </Box>
 
-            </Box>
+            </Box >
         </>
     )
 }
