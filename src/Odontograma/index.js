@@ -2706,6 +2706,148 @@ export default function Odontograma() {
                             }
                         })
                     }
+                    // añadido para demas partes de dientes
+                    if (key2 === "topUpLeft") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                select: true,
+                                [key2]: true
+                            }
+                        })
+                    }
+                    if (key2 === "topUpRight") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                select: true,
+                                [key2]: true
+                            }
+                        })
+                    }
+                    if (key2 === "centerTop") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                select: true,
+                                [key2]: true
+                            }
+                        })
+                    }
+                    if (key2 === "centerBottom") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                select: true,
+                                [key2]: true
+                            }
+                        })
+                    }
+                    if (key2 === "centerTopLeft") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                select: true,
+                                [key2]: true
+                            }
+                        })
+                    }
+                    if (key2 === "centerTopRight") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                select: true,
+                                [key2]: true
+                            }
+                        })
+                    }
+                    if (key2 === "centerBottomLeft") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                select: true,
+                                [key2]: true
+                            }
+                        })
+                    }
+                    if (key2 === "centerBottomRight") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                select: true,
+                                [key2]: true
+                            }
+                        })
+                    }
+                    if (key2 === "centerTopCenterCenter") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                select: true,
+                                [key2]: true
+                            }
+                        })
+                    }
+                    if (key2 === "centerTopCenterLeft") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                select: true,
+                                [key2]: true
+                            }
+                        })
+                    }
+                    if (key2 === "centerTopCenterRight") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                select: true,
+                                [key2]: true
+                            }
+                        })
+                    }
+                    if (key2 === "centerBottomCenterCenter") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                select: true,
+                                [key2]: true
+                            }
+                        })
+                    }
+                    if (key2 === "centerBottomCenterLeft") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                select: true,
+                                [key2]: true
+                            }
+                        })
+                    }
+                    if (key2 === "centerBottomCenterRight") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                select: true,
+                                [key2]: true
+                            }
+                        })
+                    }
+                    // fin añadido
                     if (key2 === "") {
                         arr.push({
                             ...item,
@@ -2868,6 +3010,428 @@ export default function Odontograma() {
                             }
                         })
                     }
+                    // añadido para demas partes de dientes
+                    if (key2 === "topUpLeft") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                [key2]: false,
+                                select:
+                                    (
+                                        !item.restauracionTemporal.topUp &&
+                                        !item.restauracionTemporal.top &&
+                                        !item.restauracionTemporal.left &&
+                                        !item.restauracionTemporal.right &&
+                                        !item.restauracionTemporal.bottom &&
+                                        !item.restauracionTemporal.topUpRight &&
+                                        !item.restauracionTemporal.centerTop &&
+                                        !item.restauracionTemporal.centerBottom &&
+                                        !item.restauracionTemporal.centerTopLeft &&
+                                        !item.restauracionTemporal.centerTopRight &&
+                                        !item.restauracionTemporal.centerBottomLeft &&
+                                        !item.restauracionTemporal.centerBottomRight &&
+                                        !item.restauracionTemporal.centerTopCenterCenter &&
+                                        !item.restauracionTemporal.centerTopCenterLeft &&
+                                        !item.restauracionTemporal.centerTopCenterRight &&
+                                        !item.restauracionTemporal.centerBottomCenterCenter &&
+                                        !item.restauracionTemporal.centerBottomCenterLeft &&
+                                        !item.restauracionTemporal.centerBottomCenterRight
+                                    ) ? false : true,
+                            }
+                        })
+                    }
+                    if (key2 === "topUpRight") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                [key2]: false,
+                                select:
+                                    (
+                                        !item.restauracionTemporal.topUp &&
+                                        !item.restauracionTemporal.top &&
+                                        !item.restauracionTemporal.left &&
+                                        !item.restauracionTemporal.right &&
+                                        !item.restauracionTemporal.bottom &&
+                                        !item.restauracionTemporal.topUpLeft &&
+                                        !item.restauracionTemporal.centerTop &&
+                                        !item.restauracionTemporal.centerBottom &&
+                                        !item.restauracionTemporal.centerTopLeft &&
+                                        !item.restauracionTemporal.centerTopRight &&
+                                        !item.restauracionTemporal.centerBottomLeft &&
+                                        !item.restauracionTemporal.centerBottomRight &&
+                                        !item.restauracionTemporal.centerTopCenterCenter &&
+                                        !item.restauracionTemporal.centerTopCenterLeft &&
+                                        !item.restauracionTemporal.centerTopCenterRight &&
+                                        !item.restauracionTemporal.centerBottomCenterCenter &&
+                                        !item.restauracionTemporal.centerBottomCenterLeft &&
+                                        !item.restauracionTemporal.centerBottomCenterRight
+                                    ) ? false : true,
+                            }
+                        })
+                    }
+                    if (key2 === "centerTop") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                [key2]: false,
+                                select:
+                                    (
+                                        !item.restauracionTemporal.topUp &&
+                                        !item.restauracionTemporal.top &&
+                                        !item.restauracionTemporal.left &&
+                                        !item.restauracionTemporal.right &&
+                                        !item.restauracionTemporal.bottom &&
+                                        !item.restauracionTemporal.topUpLeft &&
+                                        !item.restauracionTemporal.topUpRight &&
+                                        !item.restauracionTemporal.centerBottom &&
+                                        !item.restauracionTemporal.centerTopLeft &&
+                                        !item.restauracionTemporal.centerTopRight &&
+                                        !item.restauracionTemporal.centerBottomLeft &&
+                                        !item.restauracionTemporal.centerBottomRight &&
+                                        !item.restauracionTemporal.centerTopCenterCenter &&
+                                        !item.restauracionTemporal.centerTopCenterLeft &&
+                                        !item.restauracionTemporal.centerTopCenterRight &&
+                                        !item.restauracionTemporal.centerBottomCenterCenter &&
+                                        !item.restauracionTemporal.centerBottomCenterLeft &&
+                                        !item.restauracionTemporal.centerBottomCenterRight
+                                    ) ? false : true,
+                            }
+                        })
+                    }
+                    if (key2 === "centerBottom") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                [key2]: false,
+                                select:
+                                    (
+                                        !item.restauracionTemporal.topUp &&
+                                        !item.restauracionTemporal.top &&
+                                        !item.restauracionTemporal.left &&
+                                        !item.restauracionTemporal.right &&
+                                        !item.restauracionTemporal.bottom &&
+                                        !item.restauracionTemporal.topUpLeft &&
+                                        !item.restauracionTemporal.topUpRight &&
+                                        !item.restauracionTemporal.centerTop &&
+                                        !item.restauracionTemporal.centerTopLeft &&
+                                        !item.restauracionTemporal.centerTopRight &&
+                                        !item.restauracionTemporal.centerBottomLeft &&
+                                        !item.restauracionTemporal.centerBottomRight &&
+                                        !item.restauracionTemporal.centerTopCenterCenter &&
+                                        !item.restauracionTemporal.centerTopCenterLeft &&
+                                        !item.restauracionTemporal.centerTopCenterRight &&
+                                        !item.restauracionTemporal.centerBottomCenterCenter &&
+                                        !item.restauracionTemporal.centerBottomCenterLeft &&
+                                        !item.restauracionTemporal.centerBottomCenterRight
+                                    ) ? false : true,
+                            }
+                        })
+                    }
+                    if (key2 === "centerTopLeft") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                [key2]: false,
+                                select:
+                                    (
+                                        !item.restauracionTemporal.topUp &&
+                                        !item.restauracionTemporal.top &&
+                                        !item.restauracionTemporal.left &&
+                                        !item.restauracionTemporal.right &&
+                                        !item.restauracionTemporal.bottom &&
+                                        !item.restauracionTemporal.topUpLeft &&
+                                        !item.restauracionTemporal.topUpRight &&
+                                        !item.restauracionTemporal.centerTop &&
+                                        !item.restauracionTemporal.centerBottom &&
+                                        !item.restauracionTemporal.centerTopRight &&
+                                        !item.restauracionTemporal.centerBottomLeft &&
+                                        !item.restauracionTemporal.centerBottomRight &&
+                                        !item.restauracionTemporal.centerTopCenterCenter &&
+                                        !item.restauracionTemporal.centerTopCenterLeft &&
+                                        !item.restauracionTemporal.centerTopCenterRight &&
+                                        !item.restauracionTemporal.centerBottomCenterCenter &&
+                                        !item.restauracionTemporal.centerBottomCenterLeft &&
+                                        !item.restauracionTemporal.centerBottomCenterRight
+                                    ) ? false : true,
+                            }
+                        })
+                    }
+                    if (key2 === "centerTopRight") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                [key2]: false,
+                                select:
+                                    (
+                                        !item.restauracionTemporal.topUp &&
+                                        !item.restauracionTemporal.top &&
+                                        !item.restauracionTemporal.left &&
+                                        !item.restauracionTemporal.right &&
+                                        !item.restauracionTemporal.bottom &&
+                                        !item.restauracionTemporal.topUpLeft &&
+                                        !item.restauracionTemporal.topUpRight &&
+                                        !item.restauracionTemporal.centerTop &&
+                                        !item.restauracionTemporal.centerBottom &&
+                                        !item.restauracionTemporal.centerTopLeft &&
+                                        !item.restauracionTemporal.centerBottomLeft &&
+                                        !item.restauracionTemporal.centerBottomRight &&
+                                        !item.restauracionTemporal.centerTopCenterCenter &&
+                                        !item.restauracionTemporal.centerTopCenterLeft &&
+                                        !item.restauracionTemporal.centerTopCenterRight &&
+                                        !item.restauracionTemporal.centerBottomCenterCenter &&
+                                        !item.restauracionTemporal.centerBottomCenterLeft &&
+                                        !item.restauracionTemporal.centerBottomCenterRight
+                                    ) ? false : true,
+                            }
+                        })
+                    }
+                    if (key2 === "centerBottomLeft") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                [key2]: false,
+                                select:
+                                    (
+                                        !item.restauracionTemporal.topUp &&
+                                        !item.restauracionTemporal.top &&
+                                        !item.restauracionTemporal.left &&
+                                        !item.restauracionTemporal.right &&
+                                        !item.restauracionTemporal.bottom &&
+                                        !item.restauracionTemporal.topUpLeft &&
+                                        !item.restauracionTemporal.topUpRight &&
+                                        !item.restauracionTemporal.centerTop &&
+                                        !item.restauracionTemporal.centerBottom &&
+                                        !item.restauracionTemporal.centerTopLeft &&
+                                        !item.restauracionTemporal.centerTopRight &&
+                                        !item.restauracionTemporal.centerBottomRight &&
+                                        !item.restauracionTemporal.centerTopCenterCenter &&
+                                        !item.restauracionTemporal.centerTopCenterLeft &&
+                                        !item.restauracionTemporal.centerTopCenterRight &&
+                                        !item.restauracionTemporal.centerBottomCenterCenter &&
+                                        !item.restauracionTemporal.centerBottomCenterLeft &&
+                                        !item.restauracionTemporal.centerBottomCenterRight
+                                    ) ? false : true,
+                            }
+                        })
+                    }
+                    if (key2 === "centerBottomRight") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                [key2]: false,
+                                select:
+                                    (
+                                        !item.restauracionTemporal.topUp &&
+                                        !item.restauracionTemporal.top &&
+                                        !item.restauracionTemporal.left &&
+                                        !item.restauracionTemporal.right &&
+                                        !item.restauracionTemporal.bottom &&
+                                        !item.restauracionTemporal.topUpLeft &&
+                                        !item.restauracionTemporal.topUpRight &&
+                                        !item.restauracionTemporal.centerTop &&
+                                        !item.restauracionTemporal.centerBottom &&
+                                        !item.restauracionTemporal.centerTopLeft &&
+                                        !item.restauracionTemporal.centerTopRight &&
+                                        !item.restauracionTemporal.centerBottomLeft &&
+                                        !item.restauracionTemporal.centerTopCenterCenter &&
+                                        !item.restauracionTemporal.centerTopCenterLeft &&
+                                        !item.restauracionTemporal.centerTopCenterRight &&
+                                        !item.restauracionTemporal.centerBottomCenterCenter &&
+                                        !item.restauracionTemporal.centerBottomCenterLeft &&
+                                        !item.restauracionTemporal.centerBottomCenterRight
+                                    ) ? false : true,
+                            }
+                        })
+                    }
+                    if (key2 === "centerTopCenterCenter") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                [key2]: false,
+                                select:
+                                    (
+                                        !item.restauracionTemporal.topUp &&
+                                        !item.restauracionTemporal.top &&
+                                        !item.restauracionTemporal.left &&
+                                        !item.restauracionTemporal.right &&
+                                        !item.restauracionTemporal.bottom &&
+                                        !item.restauracionTemporal.topUpLeft &&
+                                        !item.restauracionTemporal.topUpRight &&
+                                        !item.restauracionTemporal.centerTop &&
+                                        !item.restauracionTemporal.centerBottom &&
+                                        !item.restauracionTemporal.centerTopLeft &&
+                                        !item.restauracionTemporal.centerTopRight &&
+                                        !item.restauracionTemporal.centerBottomLeft &&
+                                        !item.restauracionTemporal.centerBottomRight &&
+                                        !item.restauracionTemporal.centerTopCenterLeft &&
+                                        !item.restauracionTemporal.centerTopCenterRight &&
+                                        !item.restauracionTemporal.centerBottomCenterCenter &&
+                                        !item.restauracionTemporal.centerBottomCenterLeft &&
+                                        !item.restauracionTemporal.centerBottomCenterRight
+                                    ) ? false : true,
+                            }
+                        })
+                    }
+                    if (key2 === "centerTopCenterLeft") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                [key2]: false,
+                                select:
+                                    (
+                                        !item.restauracionTemporal.topUp &&
+                                        !item.restauracionTemporal.top &&
+                                        !item.restauracionTemporal.left &&
+                                        !item.restauracionTemporal.right &&
+                                        !item.restauracionTemporal.bottom &&
+                                        !item.restauracionTemporal.topUpLeft &&
+                                        !item.restauracionTemporal.topUpRight &&
+                                        !item.restauracionTemporal.centerTop &&
+                                        !item.restauracionTemporal.centerBottom &&
+                                        !item.restauracionTemporal.centerTopLeft &&
+                                        !item.restauracionTemporal.centerTopRight &&
+                                        !item.restauracionTemporal.centerBottomLeft &&
+                                        !item.restauracionTemporal.centerBottomRight &&
+                                        !item.restauracionTemporal.centerTopCenterCenter &&
+                                        !item.restauracionTemporal.centerTopCenterRight &&
+                                        !item.restauracionTemporal.centerBottomCenterCenter &&
+                                        !item.restauracionTemporal.centerBottomCenterLeft &&
+                                        !item.restauracionTemporal.centerBottomCenterRight
+                                    ) ? false : true,
+                            }
+                        })
+                    }
+                    if (key2 === "centerTopCenterRight") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                [key2]: false,
+                                select:
+                                    (
+                                        !item.restauracionTemporal.topUp &&
+                                        !item.restauracionTemporal.top &&
+                                        !item.restauracionTemporal.left &&
+                                        !item.restauracionTemporal.right &&
+                                        !item.restauracionTemporal.bottom &&
+                                        !item.restauracionTemporal.topUpLeft &&
+                                        !item.restauracionTemporal.topUpRight &&
+                                        !item.restauracionTemporal.centerTop &&
+                                        !item.restauracionTemporal.centerBottom &&
+                                        !item.restauracionTemporal.centerTopLeft &&
+                                        !item.restauracionTemporal.centerTopRight &&
+                                        !item.restauracionTemporal.centerBottomLeft &&
+                                        !item.restauracionTemporal.centerBottomRight &&
+                                        !item.restauracionTemporal.centerTopCenterCenter &&
+                                        !item.restauracionTemporal.centerTopCenterLeft &&
+                                        !item.restauracionTemporal.centerBottomCenterCenter &&
+                                        !item.restauracionTemporal.centerBottomCenterLeft &&
+                                        !item.restauracionTemporal.centerBottomCenterRight
+                                    ) ? false : true,
+                            }
+                        })
+                    }
+                    if (key2 === "centerBottomCenterCenter") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                [key2]: false,
+                                select:
+                                    (
+                                        !item.restauracionTemporal.topUp &&
+                                        !item.restauracionTemporal.top &&
+                                        !item.restauracionTemporal.left &&
+                                        !item.restauracionTemporal.right &&
+                                        !item.restauracionTemporal.bottom &&
+                                        !item.restauracionTemporal.topUpLeft &&
+                                        !item.restauracionTemporal.topUpRight &&
+                                        !item.restauracionTemporal.centerTop &&
+                                        !item.restauracionTemporal.centerBottom &&
+                                        !item.restauracionTemporal.centerTopLeft &&
+                                        !item.restauracionTemporal.centerTopRight &&
+                                        !item.restauracionTemporal.centerBottomLeft &&
+                                        !item.restauracionTemporal.centerBottomRight &&
+                                        !item.restauracionTemporal.centerTopCenterCenter &&
+                                        !item.restauracionTemporal.centerTopCenterLeft &&
+                                        !item.restauracionTemporal.centerTopCenterRight &&
+                                        !item.restauracionTemporal.centerBottomCenterLeft &&
+                                        !item.restauracionTemporal.centerBottomCenterRight
+                                    ) ? false : true,
+                            }
+                        })
+                    }
+                    if (key2 === "centerBottomCenterLeft") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                [key2]: false,
+                                select:
+                                    (
+                                        !item.restauracionTemporal.topUp &&
+                                        !item.restauracionTemporal.top &&
+                                        !item.restauracionTemporal.left &&
+                                        !item.restauracionTemporal.right &&
+                                        !item.restauracionTemporal.bottom &&
+                                        !item.restauracionTemporal.topUpLeft &&
+                                        !item.restauracionTemporal.topUpRight &&
+                                        !item.restauracionTemporal.centerTop &&
+                                        !item.restauracionTemporal.centerBottom &&
+                                        !item.restauracionTemporal.centerTopLeft &&
+                                        !item.restauracionTemporal.centerTopRight &&
+                                        !item.restauracionTemporal.centerBottomLeft &&
+                                        !item.restauracionTemporal.centerBottomRight &&
+                                        !item.restauracionTemporal.centerTopCenterCenter &&
+                                        !item.restauracionTemporal.centerTopCenterLeft &&
+                                        !item.restauracionTemporal.centerTopCenterRight &&
+                                        !item.restauracionTemporal.centerBottomCenterCenter &&
+                                        !item.restauracionTemporal.centerBottomCenterRight
+                                    ) ? false : true,
+                            }
+                        })
+                    }
+                    if (key2 === "centerBottomCenterRight") {
+                        arr.push({
+                            ...item,
+                            restauracionTemporal: {
+                                ...item.restauracionTemporal,
+                                [key2]: false,
+                                select:
+                                    (
+                                        !item.restauracionTemporal.topUp &&
+                                        !item.restauracionTemporal.top &&
+                                        !item.restauracionTemporal.left &&
+                                        !item.restauracionTemporal.right &&
+                                        !item.restauracionTemporal.bottom &&
+                                        !item.restauracionTemporal.topUpLeft &&
+                                        !item.restauracionTemporal.topUpRight &&
+                                        !item.restauracionTemporal.centerTop &&
+                                        !item.restauracionTemporal.centerBottom &&
+                                        !item.restauracionTemporal.centerTopLeft &&
+                                        !item.restauracionTemporal.centerTopRight &&
+                                        !item.restauracionTemporal.centerBottomLeft &&
+                                        !item.restauracionTemporal.centerBottomRight &&
+                                        !item.restauracionTemporal.centerTopCenterCenter &&
+                                        !item.restauracionTemporal.centerTopCenterLeft &&
+                                        !item.restauracionTemporal.centerTopCenterRight &&
+                                        !item.restauracionTemporal.centerBottomCenterCenter &&
+                                        !item.restauracionTemporal.centerBottomCenterLeft
+                                    ) ? false : true,
+                            }
+                        })
+                    }
+                    // fin añadido
                     if (key2 === "") {
                         arr.push({
                             ...item,
@@ -2984,8 +3548,8 @@ export default function Odontograma() {
                     if (key2 === "centerTopRight") {
                         arr.push({
                             ...item,
-                            carie: {
-                                ...item.carie,
+                            sellantes: {
+                                ...item.sellantes,
                                 select: true,
                                 [key2]: true
                             }
@@ -2994,8 +3558,8 @@ export default function Odontograma() {
                     if (key2 === "centerBottomLeft") {
                         arr.push({
                             ...item,
-                            carie: {
-                                ...item.carie,
+                            sellantes: {
+                                ...item.sellantes,
                                 select: true,
                                 [key2]: true
                             }

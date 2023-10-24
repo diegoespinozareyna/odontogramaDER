@@ -90,7 +90,7 @@ export function diente2(obj) {
                             />
                             <polygon
                                 points="0,0 0,30 30,30"
-                                fill={"red"}
+                                fill={"white"}
                                 stroke={"black"}
                                 stroke-width="1"
                             />
@@ -166,19 +166,19 @@ export function diente3(obj) {
                         <svg style={{ marginBottom: "0" }} width="60" height="70">
                             <polygon
                                 points="30,0 0,30 60,30"
-                                fill={"white"}
+                                fill={"red"}
                                 stroke={"black"}
                                 stroke-width="1"
                             />
                             <polygon
                                 points="0,30 10,40 60,40 60,30"
-                                fill={"white"}
+                                fill={"blue"}
                                 stroke={"black"}
                                 stroke-width="1"
                             />
                             <polygon
                                 points="0,30 0,70 10,60 10,40"
-                                fill={"white"}
+                                fill={"green"}
                                 stroke={"black"}
                                 stroke-width="1"
                             />
@@ -196,13 +196,13 @@ export function diente3(obj) {
                             />
                             <polygon
                                 points="10,40 10,50 50,50 50,40"
-                                fill={"white"}
+                                fill={"red"}
                                 stroke={"black"}
                                 stroke-width="1"
                             />
                             <polygon
                                 points="10,50 10,60 50,60 50,50"
-                                fill={"white"}
+                                fill={"blue"}
                                 stroke={"black"}
                                 stroke-width="1"
                             />
@@ -276,24 +276,28 @@ export function diente4(obj) {
                                 stroke={"black"}
                                 stroke-width="1"
                             />
+                            {/* centerTopLeft */}
                             <polygon
                                 points="10,40 10,50 30,50 30,40"
-                                fill={"white"}
+                                fill={"red"}
                                 stroke={"black"}
                                 stroke-width="1"
                             />
+                            {/* centerBottomLeft */}
                             <polygon
                                 points="10,50 10,60 30,60 30,50"
-                                fill={"white"}
+                                fill={"blue"}
                                 stroke={"black"}
                                 stroke-width="1"
                             />
+                            {/* centerTopRight */}
                             <polygon
                                 points="30,40 30,50 50,50 50,40"
-                                fill={"white"}
+                                fill={"green"}
                                 stroke={"black"}
                                 stroke-width="1"
                             />
+                            {/* centerBottomRight */}
                             <polygon
                                 points="30,50 30,60 50,60 50,50"
                                 fill={"white"}
@@ -373,7 +377,7 @@ export function diente5(obj) {
                             />
                             <polygon
                                 points="10,40 10,50 23.33,50 23.33,40"
-                                fill={"white"}
+                                fill={"red"}
                                 stroke={"black"}
                                 stroke-width="1"
                             />
@@ -401,9 +405,10 @@ export function diente5(obj) {
                                 stroke={"black"}
                                 stroke-width="1"
                             />
+                            {/* centerTopCenterRight */}
                             <polygon
                                 points="36.66,40 36.66,50 50,50 50,40"
-                                fill={"white"}
+                                fill={"red"}
                                 stroke={"black"}
                                 stroke-width="1"
                             />

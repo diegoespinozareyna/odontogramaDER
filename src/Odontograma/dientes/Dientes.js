@@ -1,9 +1,17 @@
 import { Box } from '@mui/material'
 import React from 'react'
 import Selections from '../Selections'
-import { diente1, diente2, diente3, diente4, diente5 } from '../dientesType/index';
+// import { diente1, diente2, diente3, diente4, diente5 } from '../dientesType/index';
 import Diente1 from '../dientesType/Diente1';
 import Diente2 from '../dientesType/Diente2';
+import Diente3 from '../dientesType/Diente3';
+import Diente4 from '../dientesType/Diente4';
+import Diente5 from '../dientesType/Diente5';
+import Diente1Abajo from '../dientesType/Diente1Abajo';
+import Diente2Abajo from '../dientesType/Diente2Abajo';
+import Diente3Abajo from '../dientesType/Diente3Abajo';
+import Diente4Abajo from '../dientesType/Diente4Abajo';
+import Diente5Abajo from '../dientesType/Diente5Abajo';
 
 export default function Dientes({
     parte1,
@@ -23,83 +31,156 @@ export default function Dientes({
 }) {
     return (
         <>
-            <Box sx={{ display: "flex" }}>
-                <Box sx={{ border: "1px solid black", padding: "5px", borderRadius: "5px", marginLeft: "5px" }}>
+            <Box sx={{ display: "flex", position: "relative", zIndex: "1"}}>
+                <Box sx={{ border: "1px solid black", padding: "5px", borderRadius: "5px", marginLeft: "5px", minHeight: "600px" }}>
                     <Selections handleSlection={handleSlection} selectExtra={selectExtra} handleSelectChange={handleSelectChange} />
                 </Box>
-                <Box sx={{ display: "flex", flexDirection: "column", transform: "scale(0.7)", marginLeft: "-150px", border: "1px solid transparent", padding: "10px" }}>
+                <Box sx={{ display: "flex", flexDirection: "column", transform: "scale(0.6)", marginLeft: "-370px", marginTop: "-140px", border: "1px solid transparent", padding: "10px" }}>
                     <Box sx={{ display: "flex" }}>
-
+                        {/*Dientes adulto */}
                         <Box sx={{ display: "flex" }}>
                             {
                                 parte1.map((diente, ix) => (
-                                    <Box ml={2.5} key={ix}>
-                                        {diente.id === 1 && diente5(diente)}
-                                        {diente.id === 2 && diente4(diente)}
-                                        {diente.id === 3 && diente4(diente)}
-                                        {diente.id === 4 && diente3(diente)}
+                                    <Box ml={ix === 8 ? 10 : 2.5} key={ix}>
+                                        {diente.id === 1 && <Diente5 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 2 && <Diente4 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 3 && <Diente4 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 4 && <Diente3 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
                                         {diente.id === 5 && <Diente2 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
                                         {diente.id === 6 && <Diente1 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
                                         {diente.id === 7 && <Diente1 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
                                         {diente.id === 8 && <Diente1 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
-                                        {/* {diente1(diente)} */}
-                                    </Box>
-                                ))
-                            }
-                        </Box>
-                        <Box sx={{ display: "flex", marginLeft: "50px" }}>
-                            {
-                                parte2.map((diente, ix) => (
-                                    <Box ml={2.5} key={ix}>
-                                        {diente.id === 8 && diente5(diente)}
-                                        {diente.id === 7 && diente4(diente)}
-                                        {diente.id === 6 && diente4(diente)}
-                                        {diente.id === 5 && diente3(diente)}
-                                        {diente.id === 4 && diente2(diente)}
-                                        {diente.id === 1 && diente1(diente)}
-                                        {diente.id === 2 && diente1(diente)}
-                                        {diente.id === 3 && diente1(diente)}
-                                    </Box>
-                                ))
-                            }
-                        </Box>
-                    </Box>
-                    <Box sx={{ display: "flex", transform: 'scaleY(-1)', marginTop: "100px" }}>
 
+                                        {diente.id === 9 && <Diente1 ml={0} selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 10 && <Diente1 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 11 && <Diente1 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 12 && <Diente2 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 13 && <Diente3 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 14 && <Diente4 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 15 && <Diente4 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 16 && <Diente5 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+
+                                        {/* <Box>Holas kdlsf</Box> */}
+                                    </Box>
+                                ))
+                            }
+                        </Box>
+
+                    </Box>
+
+                    <Box sx={{ display: "flex", marginTop: "500px", marginLeft: "-320px" }}>
                         <Box sx={{ display: "flex" }}>
                             {
-                                parte3.map((diente, ix) => (
-                                    <Box ml={2.5} key={ix}>
-                                        {diente.id === 1 && diente5(diente)}
-                                        {diente.id === 2 && diente4(diente)}
-                                        {diente.id === 3 && diente4(diente)}
-                                        {diente.id === 4 && diente3(diente)}
-                                        {diente.id === 5 && diente2(diente)}
-                                        {diente.id === 6 && diente1(diente)}
-                                        {diente.id === 7 && diente1(diente)}
-                                        {diente.id === 8 && diente1(diente)}
-                                        {/* {diente1(diente)} */}
-                                    </Box>
-                                ))
-                            }
-                        </Box>
-                        <Box sx={{ display: "flex", marginLeft: "50px" }}>
-                            {
-                                parte4.map((diente, ix) => (
-                                    <Box ml={2.5} key={ix}>
-                                        {diente.id === 8 && diente5(diente)}
-                                        {diente.id === 7 && diente4(diente)}
-                                        {diente.id === 6 && diente4(diente)}
-                                        {diente.id === 5 && diente3(diente)}
-                                        {diente.id === 4 && diente2(diente)}
-                                        {diente.id === 1 && diente1(diente)}
-                                        {diente.id === 2 && diente1(diente)}
-                                        {diente.id === 3 && diente1(diente)}
+                                parte1.map((diente, ix) => (
+                                    <Box ml={diente.id === 25 ? 10 : 2.5} key={ix}>
+                                        {diente.id === 17 && <Diente5Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 18 && <Diente4Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 19 && <Diente4Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 20 && <Diente3Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 21 && <Diente2Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 22 && <Diente1Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 23 && <Diente1Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 24 && <Diente1Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+
+                                        {diente.id === 25 && <Diente1Abajo ml={0} selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 26 && <Diente1Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 27 && <Diente1Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 28 && <Diente2Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 29 && <Diente3Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 30 && <Diente4Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 31 && <Diente4Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 32 && <Diente5Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+
                                     </Box>
                                 ))
                             }
                         </Box>
                     </Box>
+                    {/* Fin Dientes adulto */}
+
+
+                    {/* Dientes de leche */}
+                    <Box sx={{ display: "flex", marginTop: "-750px", marginLeft: "-706px" }}>
+                        <Box sx={{ display: "flex" }}>
+                            {
+                                parte1.map((diente, ix) => (
+                                    <Box ml={diente.id === 38 ? 10 : 2.5} key={ix}>
+                                        <Box width={"3.5px"} color="transparent">
+                                            d
+                                        </Box>
+                                        <Box width={"7px"} color="transparent">
+                                            d
+                                        </Box>
+                                        <Box width={"9.5px"} color="transparent">
+                                            d
+                                        </Box>
+                                        {diente.id === 33 && <Diente4 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 34 && <Diente4 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 35 && <Diente1 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 36 && <Diente1 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 37 && <Diente1 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+
+                                        {diente.id === 38 && <Diente1 ml={0} selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 39 && <Diente1 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 40 && <Diente1 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 41 && <Diente4 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 42 && <Diente4 selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        <Box display={"none"}>
+                                            {diente.id === 30 && <Diente4Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        </Box>
+                                        <Box display={"none"}>
+                                            {diente.id === 31 && <Diente4Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        </Box>
+                                        <Box display={"none"}>
+                                            {diente.id === 32 && <Diente5Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        </Box>
+
+                                    </Box>
+                                ))
+                            }
+                        </Box>
+                    </Box>
+                    <Box sx={{ display: "flex", marginTop: "-80px", marginLeft: "-1000px" }}>
+                        <Box sx={{ display: "flex" }}>
+                            {
+                                parte1.map((diente, ix) => (
+                                    <Box ml={diente.id === 48 ? 10 : 2.5} key={ix}>
+                                        <Box width={"3.5px"} color="transparent">
+                                            d
+                                        </Box>
+                                        <Box width={"7px"} color="transparent">
+                                            d
+                                        </Box>
+                                        <Box width={"9.5px"} color="transparent">
+                                            d
+                                        </Box>
+                                        {diente.id === 43 && <Diente4Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 44 && <Diente4Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 45 && <Diente1Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 46 && <Diente1Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 47 && <Diente1Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+
+                                        {diente.id === 48 && <Diente1Abajo ml={0} selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 49 && <Diente1Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 50 && <Diente1Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 51 && <Diente4Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        {diente.id === 52 && <Diente4Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        <Box display={"none"}>
+                                            {diente.id === 30 && <Diente4Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        </Box>
+                                        <Box display={"none"}>
+                                            {diente.id === 31 && <Diente4Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        </Box>
+                                        <Box display={"none"}>
+                                            {diente.id === 32 && <Diente5Abajo selectBorrar={selectBorrar} setSelectBorrar={setSelectBorrar} handleSelectionDoble={handleSelectionDoble} selectedDates={selectedDates} handleDateClick={handleDateClick} selectExtra={selectExtra} handleSelectChange={handleSelectChange} diente={diente} hanleFunction={hanleFunction} hanleFunctionText={hanleFunctionText} />}
+                                        </Box>
+
+                                    </Box>
+                                ))
+                            }
+                        </Box>
+                    </Box>
+                    {/* Fin Dientes de leche */}
                 </Box>
 
             </Box>
