@@ -28,8 +28,110 @@ export default function Odontograma() {
         }
     }
 
-    const handleMultipleInitial = (id) => {
+    // const handleMultipleInitial = () => {
 
+    //     console.log(selectedDates)
+    //     let tmp1 = 0
+    //     let tmp2 = 0
+
+    //     if (selectedDates.length === 2) {
+
+    //         if (selectedDates[0] > selectedDates[1]) {
+    //             tmp1 = selectedDates[1]
+    //             tmp2 = selectedDates[0]
+
+
+    //             setParte1(x => x.reduce((arr, item) => {
+
+    //                 if (item.id === tmp1) {
+    //                     arr.push({
+    //                         ...item,
+    //                         aparatoOrtodonticoFijo: {
+    //                             ...item.aparatoOrtodonticoFijo,
+    //                             aparatoOrtodonticoFijoInicial: true,
+    //                             aparatoOrtodonticoFijoMedio: false,
+    //                         }
+    //                     })
+    //                 }
+    //                 else if (item.id === tmp2) {
+    //                     arr.push({
+    //                         ...item,
+    //                         aparatoOrtodonticoFijo: {
+    //                             ...item.aparatoOrtodonticoFijo,
+    //                             aparatoOrtodonticoFijoFinal: true,
+    //                             aparatoOrtodonticoFijoMedio: false,
+    //                         }
+    //                     })
+    //                 }
+    //                 // else if (item.id === id) {
+    //                 //     arr.push({
+    //                 //         ...item,
+    //                 //         aparatoOrtodonticoFijo: {
+    //                 //             ...item.aparatoOrtodonticoFijo,
+    //                 //             aparatoOrtodonticoFijoMedio: true,
+    //                 //             select: false,
+    //                 //         }
+    //                 //     })
+    //                 // }
+    //                 else {
+    //                     arr.push({
+    //                         ...item,
+    //                         aparatoOrtodonticoFijo: {
+    //                             ...item.aparatoOrtodonticoFijo,
+    //                             aparatoOrtodonticoFijoMedio: true,
+    //                             select: false,
+    //                         }
+    //                     })
+    //                 }
+
+    //                 return arr
+    //             }, []))
+    //         }
+    //         if (selectedDates[1] > selectedDates[0]) {
+    //             tmp1 = selectedDates[0]
+    //             tmp2 = selectedDates[1]
+
+    //             setParte1(x => x.reduce((arr, item) => {
+
+    //                 if (item.id === tmp1) {
+    //                     arr.push({
+    //                         ...item,
+    //                         aparatoOrtodonticoFijo: {
+    //                             ...item.aparatoOrtodonticoFijo,
+    //                             aparatoOrtodonticoFijoInicial: true,
+    //                             aparatoOrtodonticoFijoMedio: false,
+    //                         }
+    //                     })
+    //                 }
+    //                 else if (item.id === tmp2) {
+    //                     arr.push({
+    //                         ...item,
+    //                         aparatoOrtodonticoFijo: {
+    //                             ...item.aparatoOrtodonticoFijo,
+    //                             aparatoOrtodonticoFijoFinal: true,
+    //                             aparatoOrtodonticoFijoMedio: false,
+    //                         }
+    //                     })
+    //                 }
+    //                 else {
+    //                     arr.push({
+    //                         ...item,
+    //                         aparatoOrtodonticoFijo: {
+    //                             ...item.aparatoOrtodonticoFijo,
+    //                             aparatoOrtodonticoFijoMedio: true,
+    //                             select: false,
+    //                         }
+    //                     })
+    //                 }
+
+    //                 return arr
+    //             }, []))
+    //         }
+    //         setSelectedDates([])
+    //     }
+    // }
+
+    useEffect(() => {
         console.log(selectedDates)
         let tmp1 = 0
         let tmp2 = 0
@@ -39,11 +141,13 @@ export default function Odontograma() {
             if (selectedDates[0] > selectedDates[1]) {
                 tmp1 = selectedDates[1]
                 tmp2 = selectedDates[0]
+                console.log("menor dato: ", tmp1)
+                console.log("mayor dato: ", tmp2)
 
 
                 setParte1(x => x.reduce((arr, item) => {
 
-                    if (item.id === tmp1) {
+                    if (item.id === tmp1 && item.aparatoOrtodonticoFijo.select) {
                         arr.push({
                             ...item,
                             aparatoOrtodonticoFijo: {
@@ -53,7 +157,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    else if (item.id === tmp2) {
+                    else if (item.id === tmp2 && item.aparatoOrtodonticoFijo.select) {
                         arr.push({
                             ...item,
                             aparatoOrtodonticoFijo: {
@@ -63,25 +167,46 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    // else if (item.id === id) {
-                    //     arr.push({
-                    //         ...item,
-                    //         aparatoOrtodonticoFijo: {
-                    //             ...item.aparatoOrtodonticoFijo,
-                    //             aparatoOrtodonticoFijoMedio: true,
-                    //             select: false,
-                    //         }
-                    //     })
-                    // }
-                    else {
+                    else if ((item.id > tmp1 && item.id < tmp2) && item.aparatoOrtodonticoFijo.select) {
                         arr.push({
                             ...item,
                             aparatoOrtodonticoFijo: {
                                 ...item.aparatoOrtodonticoFijo,
                                 aparatoOrtodonticoFijoMedio: true,
-                                select: false,
                             }
                         })
+                    }
+                    else if (item.id === tmp1 && item.protesisFija.select) {
+                        arr.push({
+                            ...item,
+                            protesisFija: {
+                                ...item.protesisFija,
+                                protesisFijaInicial: true,
+                                protesisFijaMedio: false,
+                            }
+                        })
+                    }
+                    else if (item.id === tmp2 && item.protesisFija.select) {
+                        arr.push({
+                            ...item,
+                            protesisFija: {
+                                ...item.protesisFija,
+                                protesisFijaFinal: true,
+                                protesisFijaMedio: false,
+                            }
+                        })
+                    }
+                    else if (item.id > tmp1 && item.id < tmp2 && item.protesisFija.select) {
+                        arr.push({
+                            ...item,
+                            protesisFija: {
+                                ...item.protesisFija,
+                                protesisFijaMedio: true,
+                            }
+                        })
+                    }
+                    else {
+                        arr.push(item)
                     }
 
                     return arr
@@ -91,9 +216,12 @@ export default function Odontograma() {
                 tmp1 = selectedDates[0]
                 tmp2 = selectedDates[1]
 
+                console.log("menor dato: ", tmp1)
+                console.log("mayor dato: ", tmp2)
+
                 setParte1(x => x.reduce((arr, item) => {
 
-                    if (item.id === tmp1) {
+                    if (item.id === tmp1 && item.aparatoOrtodonticoFijo.select) {
                         arr.push({
                             ...item,
                             aparatoOrtodonticoFijo: {
@@ -103,7 +231,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    else if (item.id === tmp2) {
+                    else if (item.id === tmp2 && item.aparatoOrtodonticoFijo.select) {
                         arr.push({
                             ...item,
                             aparatoOrtodonticoFijo: {
@@ -113,15 +241,46 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    else {
+                    else if (item.id > tmp1 && item.id < tmp2 && item.aparatoOrtodonticoFijo.select) {
                         arr.push({
                             ...item,
                             aparatoOrtodonticoFijo: {
                                 ...item.aparatoOrtodonticoFijo,
                                 aparatoOrtodonticoFijoMedio: true,
-                                select: false,
                             }
                         })
+                    }
+                    else if (item.id === tmp1 && item.protesisFija.select) {
+                        arr.push({
+                            ...item,
+                            protesisFija: {
+                                ...item.protesisFija,
+                                protesisFijaInicial: true,
+                                protesisFijaMedio: false,
+                            }
+                        })
+                    }
+                    else if (item.id === tmp2 && item.protesisFija.select) {
+                        arr.push({
+                            ...item,
+                            protesisFija: {
+                                ...item.protesisFija,
+                                protesisFijaFinal: true,
+                                protesisFijaMedio: false,
+                            }
+                        })
+                    }
+                    else if (item.id > tmp1 && item.id < tmp2 && item.protesisFija.select) {
+                        arr.push({
+                            ...item,
+                            protesisFija: {
+                                ...item.protesisFija,
+                                protesisFijaMedio: true,
+                            }
+                        })
+                    }
+                    else {
+                        arr.push(item)
                     }
 
                     return arr
@@ -129,6 +288,49 @@ export default function Odontograma() {
             }
             setSelectedDates([])
         }
+    }, [selectedDates])
+
+    const handleBorrarBracketsAndProtesisFija = (id, key1) => {
+        setParte1(x => x.reduce((arr, item) => {
+            if (key1 === 'aparatoOrtodonticoFijo' && item.eraser === true) {
+                if (item.id === id) {
+                    arr.push({
+                        ...item,
+                        [key1]: {
+                            ...item.aparatoOrtodonticoFijo,
+                            select: false,
+                            aparatoOrtodonticoFijoInicial: false,
+                            aparatoOrtodonticoFijoFinal: false,
+                            aparatoOrtodonticoFijoMedio: false,
+                        },
+                    })
+                }
+                else {
+                    arr.push(item)
+                }
+            }
+            if (key1 === 'protesisFija' && item.eraser === true) {
+                if (item.id === id) {
+                    arr.push({
+                        ...item,
+                        [key1]: {
+                            ...item.protesisFija,
+                            select: false,
+                            protesisFijaInicial: false,
+                            protesisFijaFinal: false,
+                            protesisFijaMedio: false,
+                        },
+                    })
+                }
+                else {
+                    arr.push(item)
+                }
+            }
+            else {
+                arr.push(item)
+            }
+            return arr
+        }, []))
     }
 
     const handleSelectionDoble = (id, key1) => {
@@ -203,6 +405,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'carie') {
@@ -244,6 +450,10 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: false,
                     },
                 })
@@ -289,6 +499,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'desgasteOclusalIncisal') {
@@ -330,6 +544,10 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: false,
                     },
                 })
@@ -375,6 +593,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'dienteEctopico') {
@@ -416,6 +638,10 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: false,
                     },
                 })
@@ -461,6 +687,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'implante') {
@@ -502,6 +732,10 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: false,
                     },
                 })
@@ -547,6 +781,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'microdoncia') {
@@ -588,6 +826,10 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: false,
                     },
                 })
@@ -633,6 +875,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'sellantes') {
@@ -676,6 +922,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'coronaTemporal') {
@@ -717,6 +967,10 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: false,
                     },
                 })
@@ -763,6 +1017,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'movilidad') {
@@ -805,6 +1063,10 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: false,
                     },
                 })
@@ -851,6 +1113,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'remanenteReticular') {
@@ -892,6 +1158,10 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: false,
                     },
                 })
@@ -937,6 +1207,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'exodoncia') {
@@ -978,6 +1252,10 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: false,
                     },
                 })
@@ -1023,6 +1301,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'dienteIntruido') {
@@ -1066,6 +1348,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'dienteExtraido') {
@@ -1107,6 +1393,10 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: false,
                     },
                 })
@@ -1153,6 +1443,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'germinacion') {
@@ -1194,6 +1488,10 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: false,
                     },
                 })
@@ -1240,6 +1538,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'migracion') {
@@ -1284,6 +1586,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'dienteErupcion') {
@@ -1325,6 +1631,10 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: false,
                     },
                 })
@@ -1371,6 +1681,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'tratamientoPulparPorRealizar') {
@@ -1413,6 +1727,10 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: false,
                     },
                 })
@@ -1459,6 +1777,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'diastema') {
@@ -1500,6 +1822,10 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: false,
                     },
                 })
@@ -1545,6 +1871,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'supernumerario') {
@@ -1586,6 +1916,10 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: false,
                     },
                 })
@@ -1631,6 +1965,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'aparatoOrtodonticoRemovible') {
@@ -1672,6 +2010,10 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: false,
                     },
                 })
@@ -1717,6 +2059,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'protesisTotal') {
@@ -1758,6 +2104,10 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: false,
                     },
                 })
@@ -1803,6 +2153,10 @@ export default function Odontograma() {
                         ...item.aparatoOrtodonticoFijo,
                         select: false,
                     },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
                 })
             }
             else if (valor === 'aparatoOrtodonticoFijo') {
@@ -1844,6 +2198,57 @@ export default function Odontograma() {
                     },
                     aparatoOrtodonticoFijo: {
                         ...item.aparatoOrtodonticoFijo,
+                        select: true,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
+                        select: false,
+                    },
+                })
+            }
+            else if (valor === 'protesisFija') {
+                arr.push({
+                    ...item,
+                    option: valor,
+                    eraser: false,
+                    diastema: {
+                        ...item.diastema,
+                        select: false,
+                    },
+                    fusion: {
+                        ...item.fusion,
+                        select: false,
+                    },
+                    supernumerario: {
+                        ...item.supernumerario,
+                        select: false,
+                    },
+                    transposicion: {
+                        ...item.transposicion,
+                        select: false,
+                    },
+                    aparatoOrtodonticoRemovible: {
+                        ...item.aparatoOrtodonticoRemovible,
+                        select: false,
+                    },
+                    protesisRemovible: {
+                        ...item.protesisRemovible,
+                        select: false,
+                    },
+                    protesisTotal: {
+                        ...item.protesisTotal,
+                        select: false,
+                    },
+                    edentuloTotal: {
+                        ...item.edentuloTotal,
+                        select: false,
+                    },
+                    aparatoOrtodonticoFijo: {
+                        ...item.aparatoOrtodonticoFijo,
+                        select: false,
+                    },
+                    protesisFija: {
+                        ...item.protesisFija,
                         select: true,
                     },
                 })
@@ -6310,16 +6715,17 @@ export default function Odontograma() {
                     arr.push(item)
                 }
             }
-            else if (key1 === 'aparatoOrtodonticoFijo' && item.eraser === true) {
+            else if (key1 === 'protesisFija' && item.eraser === false) {
+                console.log(key1)
+                console.log(key2)
+                console.log(id)
+
                 if (item.id === id) {
                     arr.push({
                         ...item,
                         [key1]: {
-                            ...item.aparatoOrtodonticoFijo,
-                            select: false,
-                            aparatoOrtodonticoFijoInicial: false,
-                            aparatoOrtodonticoFijoFinal: false,
-                            aparatoOrtodonticoFijoMedio: false,
+                            ...item.protesisFija,
+                            select: true,
                         },
                     })
                 }
@@ -6327,6 +6733,23 @@ export default function Odontograma() {
                     arr.push(item)
                 }
             }
+            // else if (key1 === 'aparatoOrtodonticoFijo' && item.eraser === true) {
+            //     if (item.id === id) {
+            //         arr.push({
+            //             ...item,
+            //             [key1]: {
+            //                 ...item.aparatoOrtodonticoFijo,
+            //                 select: false,
+            //                 aparatoOrtodonticoFijoInicial: false,
+            //                 aparatoOrtodonticoFijoFinal: false,
+            //                 aparatoOrtodonticoFijoMedio: false,
+            //             },
+            //         })
+            //     }
+            //     else {
+            //         arr.push(item)
+            //     }
+            // }
             else {
                 arr.push(item)
             }
@@ -6477,7 +6900,8 @@ export default function Odontograma() {
                     selectedDates={selectedDates}
                     handleDateClick={handleDateClick}
                     handleSelectionDoble={handleSelectionDoble}
-                    handleMultipleInitial={handleMultipleInitial}
+                    handleBorrarBracketsAndProtesisFija={handleBorrarBracketsAndProtesisFija}
+                // handleMultipleInitial={handleMultipleInitial}
                 />
             </Box>
         </>

@@ -1,38 +1,44 @@
 .app {
     position: relative;
-    height: 100vh;
+    /* height: 100vh; */
     background-color: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
+
 .app1 {
     position: none;
-  }
+}
+
 .app2 {
     color: transparent;
-  }
-  
-  .custom-cursor {
+}
+
+.custom-cursor {
     position: absolute;
-    width: 200px;
-    height: 30px;
-    border: 1px solid transparent;
-    border-radius: 10px;
-    background-color: #f43838;
-    color: #fff;
+    background-color: transparent;
+    color: red;
     font-weight: 900;
     display: flex;
-    justify-content: center;
     align-items: center;
     pointer-events: none;
+    white-space: nowrap;
+    /* Evita que el texto se divida en varias líneas */
     padding: 5px;
-    font-size: 20px;
-  }
-  
-  .cursor-message {
-    margin-left: 10px;
-  }
+    /* Añade espacio alrededor del mensaje */
+    border-radius: 4px;
+    /* Agrega bordes redondeados */
+    font-size: 16px;
+    /* Ajusta el tamaño del texto */
+}
+
+.cursor-message {
+    /* margin-left: 10px; */
+    position: absolute;
+    right: -15px; /* Ajusta el mensaje al costado derecho */
+}
+
 /*   
   body {
     cursor: none;

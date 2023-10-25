@@ -1,5 +1,6 @@
 import { Box, IconButton } from '@mui/material'
 import React, { useEffect } from 'react'
+import CloseIcon from '@mui/icons-material/Close';
 import CodeIcon from '@mui/icons-material/Code';
 
 export default function Diente2({
@@ -10,7 +11,8 @@ export default function Diente2({
     selectedDates,
     handleDateClick,
     handleSelectionDoble,
-    handleMultipleInitial
+    handleMultipleInitial,
+    handleBorrarBracketsAndProtesisFija
 }) {
 
     useEffect(() => {
@@ -49,17 +51,7 @@ export default function Diente2({
                                     />
                                 </g>
                             </svg>
-                            {
-                                diente.aparatoOrtodonticoFijo.select &&
-                                <Box sx={{ position: "absolute", zIndex: "99999" }} mt={-5}>
-                                    <IconButton
-                                        onClick={() => handleMultipleInitial(diente.id)}
-                                        size="medium"
-                                    >
-                                        <CodeIcon color="info" fontSize="medium" />
-                                    </IconButton>
-                                </Box>
-                            }
+                            
                         </Box>
                         <Box sx={{ position: "absolute", border: "1px solid transparent" }} mt={-3.8} ml={0}>
                             <svg width="80" height="30">
@@ -208,7 +200,7 @@ export default function Diente2({
                                 </g>
                                 <g>
                                     <polygon
-                                        points={diente.aparatoOrtodonticoFijo.select && diente.aparatoOrtodonticoFijo.aparatoOrtodonticoFijoMedio ? "0,5 80,5" : "null"}
+                                        points={diente.aparatoOrtodonticoFijo.aparatoOrtodonticoFijoMedio ? "0,5 80,5" : "null"}
                                         fill="transparent"
                                         stroke="red"
                                         stroke-width="2"
@@ -236,6 +228,47 @@ export default function Diente2({
                                         fill="transparent"
                                         stroke="red"
                                         stroke-width="2"
+                                    />
+                                </g>
+                                {/* protesisFija */}
+                                <g>
+                                    <polygon
+                                        points={diente.protesisFija.protesisFijaInicial ? "40,0 40,10" : "null"}
+                                        fill="transparent"
+                                        stroke="red"
+                                        stroke-width="4"
+                                    />
+                                </g>
+                                <g>
+                                    <polygon
+                                        points={diente.protesisFija.protesisFijaInicial ? "40,0 80,0" : "null"}
+                                        fill="transparent"
+                                        stroke="red"
+                                        stroke-width="4"
+                                    />
+                                </g>
+                                <g>
+                                    <polygon
+                                        points={diente.protesisFija.protesisFijaMedio ? "0,0 80,0" : "null"}
+                                        fill="transparent"
+                                        stroke="red"
+                                        stroke-width="4"
+                                    />
+                                </g>
+                                <g>
+                                    <polygon
+                                        points={diente.protesisFija.protesisFijaFinal ? "0,0 40,0" : "null"}
+                                        fill="transparent"
+                                        stroke="red"
+                                        stroke-width="4"
+                                    />
+                                </g>
+                                <g>
+                                    <polygon
+                                        points={diente.protesisFija.protesisFijaFinal ? "40,10 40,0" : "null"}
+                                        fill="transparent"
+                                        stroke="red"
+                                        stroke-width="4"
                                     />
                                 </g>
                                 {/* protesisRemovible */}
@@ -286,10 +319,32 @@ export default function Diente2({
                             </Box>
                         }
                         {/* Fin parte numeros */}
-
-                        {/* Parte todo el diente raiz-centro */}
-                        <svg width="60" height="70">
-                            {/* <g onClick={() => hanleFunction(diente.id, diente.option, 'topUp', selectExtra !== null && selectExtra !== undefined && selectExtra)} style={{ cursor: 'pointer' }}>
+                        <Box sx={{ display: "flex", flexDirection: "column" }}>
+                            {/* Boton borrar */}
+                            <Box sx={{ margin: "0 auto" }}>
+                                {
+                                    diente.eraser && diente.option !== "carie" && diente.option !== "restauracionTemporal" && diente.option !== "carie" && diente.option !== "restauracion" && diente.option !== "desgasteOclusalIncisal" && diente.option !== "dienteDiscromico" && diente.option !== "dienteEctopico" && diente.option !== "impactacion" && diente.option !== "implante" && diente.option !== "macrodoncia" && diente.option !== "microdoncia" && diente.option !== "semiImplantacion" &&
+                                    <Box sx={{ zIndex: "99999" }} mt={0}>
+                                        <IconButton
+                                            color="primary"
+                                            onClick={() => {
+                                                handleBorrarBracketsAndProtesisFija(diente.id, diente.option)
+                                                console.log("boton borrar ACTIVADOOO")
+                                            }
+                                            }
+                                            size="small"
+                                            sx={{ backgroundColor: "#fdd" }}
+                                        >
+                                            <CloseIcon color="error" fontSize="small" />
+                                        </IconButton>
+                                    </Box>
+                                }
+                            </Box>
+                            {/* fin boton borrar */}
+                            <Box>
+                                {/* Parte todo el diente raiz-centro */}
+                                <svg width="60" height="70">
+                                    {/* <g onClick={() => hanleFunction(diente.id, diente.option, 'topUp', selectExtra !== null && selectExtra !== undefined && selectExtra)} style={{ cursor: 'pointer' }}>
                                 <polygon
                                     points="30,0 0,30 60,30"
                                     fill={
@@ -309,438 +364,440 @@ export default function Diente2({
                                     }
                                 />
                             </g> */}
-                            <g onClick={() => hanleFunction(diente.id, diente.option, 'topUpLeft', selectExtra !== null && selectExtra !== undefined && selectExtra)} style={{ cursor: 'pointer' }}>
-                                <polygon
-                                    points="0,0 0,30 30,30"
-                                    fill={
-                                        diente.carie.topUpLeft === true ? "red" :
-                                            diente.restauracion.topUpLeft === true ? "blue" :
-                                                "white"
-                                    }
-                                    stroke={
-                                        diente.restauracionTemporal.topUpLeft === true ? "red" :
-                                            diente.sellantes.topUpLeft === true ? "blue" :
-                                                'black'
-                                    }
-                                    stroke-width={
-                                        diente.restauracionTemporal.topUpLeft === true ? "5" :
-                                            diente.sellantes.topUpLeft === true ? "5" :
-                                                '1'
-                                    }
-                                />
+                                    <g onClick={() => hanleFunction(diente.id, diente.option, 'topUpLeft', selectExtra !== null && selectExtra !== undefined && selectExtra)} style={{ cursor: 'pointer' }}>
+                                        <polygon
+                                            points="0,0 0,30 30,30"
+                                            fill={
+                                                diente.carie.topUpLeft === true ? "red" :
+                                                    diente.restauracion.topUpLeft === true ? "blue" :
+                                                        "white"
+                                            }
+                                            stroke={
+                                                diente.restauracionTemporal.topUpLeft === true ? "red" :
+                                                    diente.sellantes.topUpLeft === true ? "blue" :
+                                                        'black'
+                                            }
+                                            stroke-width={
+                                                diente.restauracionTemporal.topUpLeft === true ? "5" :
+                                                    diente.sellantes.topUpLeft === true ? "5" :
+                                                        '1'
+                                            }
+                                        />
 
-                            </g>
-                            <g onClick={() => hanleFunction(diente.id, diente.option, 'topUpRight', selectExtra !== null && selectExtra !== undefined && selectExtra)} style={{ cursor: 'pointer' }}>
-                                <polygon
-                                    points="60,0 30,30 60,30"
-                                    fill={
-                                        diente.carie.topUpRight === true ? "red" :
-                                            diente.restauracion.topUpRight === true ? "blue" :
-                                                "white"
-                                    }
-                                    stroke={
-                                        diente.restauracionTemporal.topUpRight === true ? "red" :
-                                            diente.sellantes.topUpRight === true ? "blue" :
-                                                'black'
-                                    }
-                                    stroke-width={
-                                        diente.restauracionTemporal.topUpRight === true ? "5" :
-                                            diente.sellantes.topUpRight === true ? "5" :
-                                                '1'
-                                    }
-                                    stroke-dasharray="2"
-                                />
+                                    </g>
+                                    <g onClick={() => hanleFunction(diente.id, diente.option, 'topUpRight', selectExtra !== null && selectExtra !== undefined && selectExtra)} style={{ cursor: 'pointer' }}>
+                                        <polygon
+                                            points="60,0 30,30 60,30"
+                                            fill={
+                                                diente.carie.topUpRight === true ? "red" :
+                                                    diente.restauracion.topUpRight === true ? "blue" :
+                                                        "white"
+                                            }
+                                            stroke={
+                                                diente.restauracionTemporal.topUpRight === true ? "red" :
+                                                    diente.sellantes.topUpRight === true ? "blue" :
+                                                        'black'
+                                            }
+                                            stroke-width={
+                                                diente.restauracionTemporal.topUpRight === true ? "5" :
+                                                    diente.sellantes.topUpRight === true ? "5" :
+                                                        '1'
+                                            }
+                                            stroke-dasharray="2"
+                                        />
 
-                            </g>
-                            <g onClick={() => hanleFunction(diente.id, diente.option, 'top', selectExtra !== null && selectExtra !== undefined && selectExtra)} style={{ cursor: 'pointer' }}>
-                                <polygon
-                                    points="0,30 20,50 40,50 60,30"
-                                    fill={
-                                        diente.carie.top === true ? "red" :
-                                            diente.restauracion.top === true ? "blue" :
-                                                "white"
-                                    }
-                                    stroke={
-                                        diente.restauracionTemporal.top === true ? "red" :
-                                            diente.sellantes.top === true ? "blue" :
-                                                'black'
-                                    }
-                                    stroke-width={
-                                        diente.restauracionTemporal.top === true ? "5" :
-                                            diente.sellantes.top === true ? "5" :
-                                                '1'
-                                    }
-                                />
-                            </g>
-                            <g onClick={() => hanleFunction(diente.id, diente.option, 'left', selectExtra !== null && selectExtra !== undefined && selectExtra)} style={{ cursor: 'pointer' }}>
-                                <polygon
-                                    points="0,30 0,70 20,50"
-                                    fill={
-                                        diente.carie.left === true ? "red" :
-                                            diente.restauracion.left === true ? "blue" :
-                                                "white"
-                                    }
-                                    stroke={
-                                        diente.restauracionTemporal.left === true ? "red" :
-                                            diente.sellantes.left === true ? "blue" :
-                                                'black'
-                                    }
-                                    stroke-width={
-                                        diente.restauracionTemporal.left === true ? "5" :
-                                            diente.sellantes.left === true ? "5" :
-                                                '1'
-                                    }
-                                />
-                            </g>
-                            <g onClick={() => hanleFunction(diente.id, diente.option, 'bottom', selectExtra !== null && selectExtra !== undefined && selectExtra)} style={{ cursor: 'pointer' }}>
-                                <polygon
-                                    points="20,50 0,70 60,70 40,50"
-                                    fill={
-                                        diente.carie.bottom === true ? "red" :
-                                            diente.restauracion.bottom === true ? "blue" :
-                                                "white"
-                                    }
-                                    stroke={
-                                        diente.restauracionTemporal.bottom === true ? "red" :
-                                            diente.sellantes.bottom === true ? "blue" :
-                                                'black'
-                                    }
-                                    stroke-width={
-                                        diente.restauracionTemporal.bottom === true ? "5" :
-                                            diente.sellantes.bottom === true ? "5" :
-                                                '1'
-                                    }
-                                />
-                            </g>
-                            <g onClick={() => hanleFunction(diente.id, diente.option, 'right', selectExtra !== null && selectExtra !== undefined && selectExtra)} style={{ cursor: 'pointer' }}>
-                                <polygon
-                                    points="60,30 40,50 60,70"
-                                    fill={
-                                        diente.carie.right === true ? "red" :
-                                            diente.restauracion.right === true ? "blue" :
-                                                "white"
-                                    }
-                                    stroke={
-                                        diente.restauracionTemporal.right === true ? "red" :
-                                            diente.sellantes.right === true ? "blue" :
-                                                'black'
-                                    }
-                                    stroke-width={
-                                        diente.restauracionTemporal.right === true ? "5" :
-                                            diente.sellantes.right === true ? "5" :
-                                                '1'
-                                    }
-                                />
-                            </g>
-                            <g>
-                                <polygon
-                                    points={diente.coronaTemporal.select ? `0,30 0,70 60,70 60,30` : `0,${'null'} 0,70 60,70 60,${'null'}`}
-                                    fill="transparent"
-                                    stroke="red"
-                                    stroke-width={diente.coronaTemporal.select ? "5" : "1"}
-                                />
-                            </g>
-                            <g>
-                                <polygon
-                                    points={diente.coronaDefinitiva.select ? `0,30 0,70 60,70 60,30` : `0,${'null'} 0,70 60,70 60,${'null'}`}
-                                    fill="transparent"
-                                    stroke="blue"
-                                    stroke-width={diente.coronaDefinitiva.select ? "5" : "1"}
-                                />
-                            </g>
-                            <g
-                                transform={diente.remanenteReticular.select ? "scale(1, -1)":'null'}
-                            >
-                                <text x={diente.remanenteReticular.select ? "0" : 'null'} y={diente.remanenteReticular.select ? "0" : 'null'} font-family="Arial" font-size="45" stroke-width="5" fill="red">R</text>
-                            </g>
-                            <g
-                                transform={diente.remanenteReticular.select ? "scale(1, -1)":'null'}
-                            >
-                                <text x={diente.remanenteReticular.select ? "30" : 'null'} y={diente.remanenteReticular.select ? "0" : 'null'} font-family="Arial" font-size="45" stroke-width="5" fill="red">R</text>
-                            </g>
-                            <g>
-                                <polygon
-                                    points={diente.dienteAusente.select ? "00,00 55,70 60,70 5,0 0,0" : "00,null 55,70 60,70 5,0 0,null"}
-                                    fill="blue"
-                                    stroke="blue"
-                                    stroke-width="1"
-                                />
-                                <polygon
-                                    points={diente.dienteAusente.select ? "55,00 0,70 5,70 60,0 55,0" : "55,null 0,70 5,70 60,0 55,null"}
-                                    fill="blue"
-                                    stroke="blue"
-                                    stroke-width="1"
-                                />
-                            </g>
-                            <g>
-                                <polygon
-                                    points={diente.exodoncia.select ? "00,00 55,70 60,70 5,0 0,0" : "00,null 55,70 60,70 5,0 0,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="1"
-                                />
-                                <polygon
-                                    points={diente.exodoncia.select ? "55,00 0,70 5,70 60,0 55,0" : "55,null 0,70 5,70 60,0 55,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="1"
-                                />
-                            </g>
-                            <g>
-                                <polygon
-                                    points={diente.fracturas.fracturaDerecha ? "55,30 0,70 5,70 60,30 55,30" : "55,null 0,70 5,70 60,30 55,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="1"
-                                />
-                                <polygon
-                                    points={diente.fracturas.fracturaIzquierda ? "0,30 55,70 60,70 5,30 0,30" : "0,null 55,70 60,70 5,30 0,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="1"
-                                />
-                            </g>
-                            {/* Diente en Erupcion */}
-                            <g>
-                                <polygon
-                                    points={diente.dienteErupcion.select ? "30,0 0,15" : "30,null 0,30 60,0 30,null"}
-                                    fill="transparent"
-                                    stroke="blue"
-                                    stroke-width="5"
-                                />
-                                <polygon
-                                    points={diente.dienteErupcion.select ? "0,15 60,30" : "30,null 0,30 60,0 30,null"}
-                                    fill="transparent"
-                                    stroke="blue"
-                                    stroke-width="5"
-                                />
-                                <polygon
-                                    points={diente.dienteErupcion.select ? "60,30 0,40" : "30,null 0,30 60,0 30,null"}
-                                    fill="transparent"
-                                    stroke="blue"
-                                    stroke-width="5"
-                                />
-                                <polygon
-                                    points={diente.dienteErupcion.select ? "0,40 30,47" : "30,null 0,30 60,0 30,null"}
-                                    fill="transparent"
-                                    stroke="blue"
-                                    stroke-width="5"
-                                />
-                                <polygon
-                                    points={diente.dienteErupcion.select ? "20,50 30,70 40,50 20,50" : "30,null 0,30 60,0 30,null"}
-                                    fill="blue"
-                                    stroke="blue"
-                                    stroke-width="1"
-                                />
-                            </g>
-                            {/* tratamientoPulparRealizado */}
-                            <g>
-                                <polygon
-                                    points={diente.tratamientoPulparRealizado.tratamientoPulparRealizadoCentral ? "30,0 30,30" : "30,null 0,30 60,0 30,null"}
-                                    fill="blue"
-                                    stroke="blue"
-                                    stroke-width="5"
-                                />
-                            </g>
-                            <g>
-                                <polygon
-                                    points={diente.tratamientoPulparRealizado.tratamientoPulparRealizadoIzquierdo ? "0,0 15,30" : "30,null 0,30 60,0 30,null"}
-                                    fill="blue"
-                                    stroke="blue"
-                                    stroke-width="5"
-                                />
-                            </g>
-                            <g>
-                                <polygon
-                                    points={diente.tratamientoPulparRealizado.tratamientoPulparRealizadoDerecho ? "60,0 45,30" : "30,null 0,30 60,0 30,null"}
-                                    fill="blue"
-                                    stroke="blue"
-                                    stroke-width="5"
-                                />
-                            </g>
-                            {/* tratamientoPulparPorRealizar */}
-                            <g>
-                                <polygon
-                                    points={diente.tratamientoPulparPorRealizar.tratamientoPulparPorRealizarCentral ? "30,0 30,30" : "30,null 0,30 60,0 30,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="5"
-                                />
-                            </g>
-                            <g>
-                                <polygon
-                                    points={diente.tratamientoPulparPorRealizar.tratamientoPulparPorRealizarIzquierdo ? "0,0 15,30" : "30,null 0,30 60,0 30,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="5"
-                                />
-                            </g>
-                            <g>
-                                <polygon
-                                    points={diente.tratamientoPulparPorRealizar.tratamientoPulparPorRealizarDerecho ? "60,0 45,30" : "30,null 0,30 60,0 30,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="5"
-                                />
-                            </g>
-                            {/* Muñon */}
-                            <g>
-                                <polygon
-                                    points={diente.munon.munonCentral ? "30,0 30,45" : "30,null 0,30 60,0 30,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="5"
-                                />
-                            </g>
-                            <g>
-                                <polygon
-                                    points={diente.munon.munonCentral ? "20,45 20,55 40,55 40,45 20,45" : "30,null 0,30 60,0 30,null"}
-                                    fill="transparent"
-                                    stroke="red"
-                                    stroke-width="3"
-                                />
-                            </g>
-                            <g>
-                                <polygon
-                                    points={diente.munon.munonIzquierdo ? "0,0 30,45" : "30,null 0,30 60,0 30,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="5"
-                                />
-                            </g>
-                            <g>
-                                <polygon
-                                    points={diente.munon.munonIzquierdo ? "20,45 20,55 40,55 40,45 20,45" : "30,null 0,30 60,0 30,null"}
-                                    fill="transparent"
-                                    stroke="red"
-                                    stroke-width="3"
-                                />
-                            </g>
-                            <g>
-                                <polygon
-                                    points={diente.munon.munonDerecho ? "60,0 30,45" : "30,null 0,30 60,0 30,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="5"
-                                />
-                            </g>
-                            <g>
-                                <polygon
-                                    points={diente.munon.munonDerecho ? "20,45 20,55 40,55 40,45 20,45" : "30,null 0,30 60,0 30,null"}
-                                    fill="transparent"
-                                    stroke="red"
-                                    stroke-width="3"
-                                />
-                            </g>
-                            {/* Diastema */}
-                            <>
-                                <g>
-                                    <polygon
-                                        points={diente.diastema.diastemaDerecho ? "50,30 60,40" : "30,null 0,30 60,0 30,null"}
-                                        fill="transparent"
-                                        stroke="blue"
-                                        stroke-width="5"
-                                    />
-                                </g>
-                                <g>
-                                    <polygon
-                                        points={diente.diastema.diastemaDerecho ? "60,35 60,60" : "30,null 0,30 60,0 30,null"}
-                                        fill="transparent"
-                                        stroke="blue"
-                                        stroke-width="8"
-                                    />
-                                </g>
-                                <g>
-                                    <polygon
-                                        points={diente.diastema.diastemaDerecho ? "60,60 50,70" : "30,null 0,30 60,0 30,null"}
-                                        fill="transparent"
-                                        stroke="blue"
-                                        stroke-width="5"
-                                    />
-                                </g>
-                            </>
-                            <>
-                                <g>
-                                    <polygon
-                                        points={diente.diastema.diastemaIzquierdo ? "10,30 0,40" : "30,null 0,30 60,0 30,null"}
-                                        fill="blue"
-                                        stroke="blue"
-                                        stroke-width="5"
-                                    />
-                                </g>
-                                <g>
-                                    <polygon
-                                        points={diente.diastema.diastemaIzquierdo ? "0,40 0,60" : "30,null 0,30 60,0 30,null"}
-                                        fill="blue"
-                                        stroke="blue"
-                                        stroke-width="8"
-                                    />
-                                </g>
-                                <g>
-                                    <polygon
-                                        points={diente.diastema.diastemaIzquierdo ? "0,60 10,70" : "30,null 0,30 60,0 30,null"}
-                                        fill="blue"
-                                        stroke="blue"
-                                        stroke-width="5"
-                                    />
-                                </g>
-                            </>
-                            {/* protesisTotal */}
-                            <>
-                                <g>
-                                    <polygon
-                                        points={diente.protesisTotal.protesisTotalIzquierdo ? "0,50 80,50" : "null"}
-                                        fill="transparent"
-                                        stroke="red"
-                                        stroke-width="5"
-                                    />
-                                </g>
-                                <g>
-                                    <polygon
-                                        points={diente.protesisTotal.protesisTotalIzquierdo ? "0,60 80,60" : "null"}
-                                        fill="transparent"
-                                        stroke="red"
-                                        stroke-width="5"
-                                    />
-                                </g>
-                                <g>
-                                    <polygon
-                                        points={diente.protesisTotal.protesisTotalDerecho ? "0,50 80,50" : "null"}
-                                        fill="transparent"
-                                        stroke="red"
-                                        stroke-width="5"
-                                    />
-                                </g>
-                                <g>
-                                    <polygon
-                                        points={diente.protesisTotal.protesisTotalDerecho ? "0,60 80,60" : "null"}
-                                        fill="transparent"
-                                        stroke="red"
-                                        stroke-width="5"
-                                    />
-                                </g>
-                            </>
-                            {/* edentuloTotal */}
-                            <>
-                                <g>
-                                    <polygon
-                                        points={diente.edentuloTotal.edentuloTotalIzquierdo ? "0,50 80,50" : "null"}
-                                        fill="transparent"
-                                        stroke="blue"
-                                        stroke-width="5"
-                                    />
-                                </g>
-                                <g>
-                                    <polygon
-                                        points={diente.edentuloTotal.edentuloTotalDerecho ? "0,50 80,50" : "null"}
-                                        fill="transparent"
-                                        stroke="blue"
-                                        stroke-width="5"
-                                    />
-                                </g>
-                            </>
-                        </svg>
-                        {/* Fin Parte todo el diente raiz-cento */}
+                                    </g>
+                                    <g onClick={() => hanleFunction(diente.id, diente.option, 'top', selectExtra !== null && selectExtra !== undefined && selectExtra)} style={{ cursor: 'pointer' }}>
+                                        <polygon
+                                            points="0,30 20,50 40,50 60,30"
+                                            fill={
+                                                diente.carie.top === true ? "red" :
+                                                    diente.restauracion.top === true ? "blue" :
+                                                        "white"
+                                            }
+                                            stroke={
+                                                diente.restauracionTemporal.top === true ? "red" :
+                                                    diente.sellantes.top === true ? "blue" :
+                                                        'black'
+                                            }
+                                            stroke-width={
+                                                diente.restauracionTemporal.top === true ? "5" :
+                                                    diente.sellantes.top === true ? "5" :
+                                                        '1'
+                                            }
+                                        />
+                                    </g>
+                                    <g onClick={() => hanleFunction(diente.id, diente.option, 'left', selectExtra !== null && selectExtra !== undefined && selectExtra)} style={{ cursor: 'pointer' }}>
+                                        <polygon
+                                            points="0,30 0,70 20,50"
+                                            fill={
+                                                diente.carie.left === true ? "red" :
+                                                    diente.restauracion.left === true ? "blue" :
+                                                        "white"
+                                            }
+                                            stroke={
+                                                diente.restauracionTemporal.left === true ? "red" :
+                                                    diente.sellantes.left === true ? "blue" :
+                                                        'black'
+                                            }
+                                            stroke-width={
+                                                diente.restauracionTemporal.left === true ? "5" :
+                                                    diente.sellantes.left === true ? "5" :
+                                                        '1'
+                                            }
+                                        />
+                                    </g>
+                                    <g onClick={() => hanleFunction(diente.id, diente.option, 'bottom', selectExtra !== null && selectExtra !== undefined && selectExtra)} style={{ cursor: 'pointer' }}>
+                                        <polygon
+                                            points="20,50 0,70 60,70 40,50"
+                                            fill={
+                                                diente.carie.bottom === true ? "red" :
+                                                    diente.restauracion.bottom === true ? "blue" :
+                                                        "white"
+                                            }
+                                            stroke={
+                                                diente.restauracionTemporal.bottom === true ? "red" :
+                                                    diente.sellantes.bottom === true ? "blue" :
+                                                        'black'
+                                            }
+                                            stroke-width={
+                                                diente.restauracionTemporal.bottom === true ? "5" :
+                                                    diente.sellantes.bottom === true ? "5" :
+                                                        '1'
+                                            }
+                                        />
+                                    </g>
+                                    <g onClick={() => hanleFunction(diente.id, diente.option, 'right', selectExtra !== null && selectExtra !== undefined && selectExtra)} style={{ cursor: 'pointer' }}>
+                                        <polygon
+                                            points="60,30 40,50 60,70"
+                                            fill={
+                                                diente.carie.right === true ? "red" :
+                                                    diente.restauracion.right === true ? "blue" :
+                                                        "white"
+                                            }
+                                            stroke={
+                                                diente.restauracionTemporal.right === true ? "red" :
+                                                    diente.sellantes.right === true ? "blue" :
+                                                        'black'
+                                            }
+                                            stroke-width={
+                                                diente.restauracionTemporal.right === true ? "5" :
+                                                    diente.sellantes.right === true ? "5" :
+                                                        '1'
+                                            }
+                                        />
+                                    </g>
+                                    <g>
+                                        <polygon
+                                            points={diente.coronaTemporal.select ? `0,30 0,70 60,70 60,30` : `0,${'null'} 0,70 60,70 60,${'null'}`}
+                                            fill="transparent"
+                                            stroke="red"
+                                            stroke-width={diente.coronaTemporal.select ? "5" : "1"}
+                                        />
+                                    </g>
+                                    <g>
+                                        <polygon
+                                            points={diente.coronaDefinitiva.select ? `0,30 0,70 60,70 60,30` : `0,${'null'} 0,70 60,70 60,${'null'}`}
+                                            fill="transparent"
+                                            stroke="blue"
+                                            stroke-width={diente.coronaDefinitiva.select ? "5" : "1"}
+                                        />
+                                    </g>
+                                    <g
+                                        transform={diente.remanenteReticular.select ? "scale(1, -1)" : 'null'}
+                                    >
+                                        <text x={diente.remanenteReticular.select ? "0" : 'null'} y={diente.remanenteReticular.select ? "0" : 'null'} font-family="Arial" font-size="45" stroke-width="5" fill="red">R</text>
+                                    </g>
+                                    <g
+                                        transform={diente.remanenteReticular.select ? "scale(1, -1)" : 'null'}
+                                    >
+                                        <text x={diente.remanenteReticular.select ? "30" : 'null'} y={diente.remanenteReticular.select ? "0" : 'null'} font-family="Arial" font-size="45" stroke-width="5" fill="red">R</text>
+                                    </g>
+                                    <g>
+                                        <polygon
+                                            points={diente.dienteAusente.select ? "00,00 55,70 60,70 5,0 0,0" : "00,null 55,70 60,70 5,0 0,null"}
+                                            fill="blue"
+                                            stroke="blue"
+                                            stroke-width="1"
+                                        />
+                                        <polygon
+                                            points={diente.dienteAusente.select ? "55,00 0,70 5,70 60,0 55,0" : "55,null 0,70 5,70 60,0 55,null"}
+                                            fill="blue"
+                                            stroke="blue"
+                                            stroke-width="1"
+                                        />
+                                    </g>
+                                    <g>
+                                        <polygon
+                                            points={diente.exodoncia.select ? "00,00 55,70 60,70 5,0 0,0" : "00,null 55,70 60,70 5,0 0,null"}
+                                            fill="red"
+                                            stroke="red"
+                                            stroke-width="1"
+                                        />
+                                        <polygon
+                                            points={diente.exodoncia.select ? "55,00 0,70 5,70 60,0 55,0" : "55,null 0,70 5,70 60,0 55,null"}
+                                            fill="red"
+                                            stroke="red"
+                                            stroke-width="1"
+                                        />
+                                    </g>
+                                    <g>
+                                        <polygon
+                                            points={diente.fracturas.fracturaDerecha ? "55,30 0,70 5,70 60,30 55,30" : "55,null 0,70 5,70 60,30 55,null"}
+                                            fill="red"
+                                            stroke="red"
+                                            stroke-width="1"
+                                        />
+                                        <polygon
+                                            points={diente.fracturas.fracturaIzquierda ? "0,30 55,70 60,70 5,30 0,30" : "0,null 55,70 60,70 5,30 0,null"}
+                                            fill="red"
+                                            stroke="red"
+                                            stroke-width="1"
+                                        />
+                                    </g>
+                                    {/* Diente en Erupcion */}
+                                    <g>
+                                        <polygon
+                                            points={diente.dienteErupcion.select ? "30,0 0,15" : "30,null 0,30 60,0 30,null"}
+                                            fill="transparent"
+                                            stroke="blue"
+                                            stroke-width="5"
+                                        />
+                                        <polygon
+                                            points={diente.dienteErupcion.select ? "0,15 60,30" : "30,null 0,30 60,0 30,null"}
+                                            fill="transparent"
+                                            stroke="blue"
+                                            stroke-width="5"
+                                        />
+                                        <polygon
+                                            points={diente.dienteErupcion.select ? "60,30 0,40" : "30,null 0,30 60,0 30,null"}
+                                            fill="transparent"
+                                            stroke="blue"
+                                            stroke-width="5"
+                                        />
+                                        <polygon
+                                            points={diente.dienteErupcion.select ? "0,40 30,47" : "30,null 0,30 60,0 30,null"}
+                                            fill="transparent"
+                                            stroke="blue"
+                                            stroke-width="5"
+                                        />
+                                        <polygon
+                                            points={diente.dienteErupcion.select ? "20,50 30,70 40,50 20,50" : "30,null 0,30 60,0 30,null"}
+                                            fill="blue"
+                                            stroke="blue"
+                                            stroke-width="1"
+                                        />
+                                    </g>
+                                    {/* tratamientoPulparRealizado */}
+                                    <g>
+                                        <polygon
+                                            points={diente.tratamientoPulparRealizado.tratamientoPulparRealizadoCentral ? "30,0 30,30" : "30,null 0,30 60,0 30,null"}
+                                            fill="blue"
+                                            stroke="blue"
+                                            stroke-width="5"
+                                        />
+                                    </g>
+                                    <g>
+                                        <polygon
+                                            points={diente.tratamientoPulparRealizado.tratamientoPulparRealizadoIzquierdo ? "0,0 15,30" : "30,null 0,30 60,0 30,null"}
+                                            fill="blue"
+                                            stroke="blue"
+                                            stroke-width="5"
+                                        />
+                                    </g>
+                                    <g>
+                                        <polygon
+                                            points={diente.tratamientoPulparRealizado.tratamientoPulparRealizadoDerecho ? "60,0 45,30" : "30,null 0,30 60,0 30,null"}
+                                            fill="blue"
+                                            stroke="blue"
+                                            stroke-width="5"
+                                        />
+                                    </g>
+                                    {/* tratamientoPulparPorRealizar */}
+                                    <g>
+                                        <polygon
+                                            points={diente.tratamientoPulparPorRealizar.tratamientoPulparPorRealizarCentral ? "30,0 30,30" : "30,null 0,30 60,0 30,null"}
+                                            fill="red"
+                                            stroke="red"
+                                            stroke-width="5"
+                                        />
+                                    </g>
+                                    <g>
+                                        <polygon
+                                            points={diente.tratamientoPulparPorRealizar.tratamientoPulparPorRealizarIzquierdo ? "0,0 15,30" : "30,null 0,30 60,0 30,null"}
+                                            fill="red"
+                                            stroke="red"
+                                            stroke-width="5"
+                                        />
+                                    </g>
+                                    <g>
+                                        <polygon
+                                            points={diente.tratamientoPulparPorRealizar.tratamientoPulparPorRealizarDerecho ? "60,0 45,30" : "30,null 0,30 60,0 30,null"}
+                                            fill="red"
+                                            stroke="red"
+                                            stroke-width="5"
+                                        />
+                                    </g>
+                                    {/* Muñon */}
+                                    <g>
+                                        <polygon
+                                            points={diente.munon.munonCentral ? "30,0 30,45" : "30,null 0,30 60,0 30,null"}
+                                            fill="red"
+                                            stroke="red"
+                                            stroke-width="5"
+                                        />
+                                    </g>
+                                    <g>
+                                        <polygon
+                                            points={diente.munon.munonCentral ? "20,45 20,55 40,55 40,45 20,45" : "30,null 0,30 60,0 30,null"}
+                                            fill="transparent"
+                                            stroke="red"
+                                            stroke-width="3"
+                                        />
+                                    </g>
+                                    <g>
+                                        <polygon
+                                            points={diente.munon.munonIzquierdo ? "0,0 30,45" : "30,null 0,30 60,0 30,null"}
+                                            fill="red"
+                                            stroke="red"
+                                            stroke-width="5"
+                                        />
+                                    </g>
+                                    <g>
+                                        <polygon
+                                            points={diente.munon.munonIzquierdo ? "20,45 20,55 40,55 40,45 20,45" : "30,null 0,30 60,0 30,null"}
+                                            fill="transparent"
+                                            stroke="red"
+                                            stroke-width="3"
+                                        />
+                                    </g>
+                                    <g>
+                                        <polygon
+                                            points={diente.munon.munonDerecho ? "60,0 30,45" : "30,null 0,30 60,0 30,null"}
+                                            fill="red"
+                                            stroke="red"
+                                            stroke-width="5"
+                                        />
+                                    </g>
+                                    <g>
+                                        <polygon
+                                            points={diente.munon.munonDerecho ? "20,45 20,55 40,55 40,45 20,45" : "30,null 0,30 60,0 30,null"}
+                                            fill="transparent"
+                                            stroke="red"
+                                            stroke-width="3"
+                                        />
+                                    </g>
+                                    {/* Diastema */}
+                                    <>
+                                        <g>
+                                            <polygon
+                                                points={diente.diastema.diastemaDerecho ? "50,30 60,40" : "30,null 0,30 60,0 30,null"}
+                                                fill="transparent"
+                                                stroke="blue"
+                                                stroke-width="5"
+                                            />
+                                        </g>
+                                        <g>
+                                            <polygon
+                                                points={diente.diastema.diastemaDerecho ? "60,35 60,60" : "30,null 0,30 60,0 30,null"}
+                                                fill="transparent"
+                                                stroke="blue"
+                                                stroke-width="8"
+                                            />
+                                        </g>
+                                        <g>
+                                            <polygon
+                                                points={diente.diastema.diastemaDerecho ? "60,60 50,70" : "30,null 0,30 60,0 30,null"}
+                                                fill="transparent"
+                                                stroke="blue"
+                                                stroke-width="5"
+                                            />
+                                        </g>
+                                    </>
+                                    <>
+                                        <g>
+                                            <polygon
+                                                points={diente.diastema.diastemaIzquierdo ? "10,30 0,40" : "30,null 0,30 60,0 30,null"}
+                                                fill="blue"
+                                                stroke="blue"
+                                                stroke-width="5"
+                                            />
+                                        </g>
+                                        <g>
+                                            <polygon
+                                                points={diente.diastema.diastemaIzquierdo ? "0,40 0,60" : "30,null 0,30 60,0 30,null"}
+                                                fill="blue"
+                                                stroke="blue"
+                                                stroke-width="8"
+                                            />
+                                        </g>
+                                        <g>
+                                            <polygon
+                                                points={diente.diastema.diastemaIzquierdo ? "0,60 10,70" : "30,null 0,30 60,0 30,null"}
+                                                fill="blue"
+                                                stroke="blue"
+                                                stroke-width="5"
+                                            />
+                                        </g>
+                                    </>
+                                    {/* protesisTotal */}
+                                    <>
+                                        <g>
+                                            <polygon
+                                                points={diente.protesisTotal.protesisTotalIzquierdo ? "0,50 80,50" : "null"}
+                                                fill="transparent"
+                                                stroke="red"
+                                                stroke-width="5"
+                                            />
+                                        </g>
+                                        <g>
+                                            <polygon
+                                                points={diente.protesisTotal.protesisTotalIzquierdo ? "0,60 80,60" : "null"}
+                                                fill="transparent"
+                                                stroke="red"
+                                                stroke-width="5"
+                                            />
+                                        </g>
+                                        <g>
+                                            <polygon
+                                                points={diente.protesisTotal.protesisTotalDerecho ? "0,50 80,50" : "null"}
+                                                fill="transparent"
+                                                stroke="red"
+                                                stroke-width="5"
+                                            />
+                                        </g>
+                                        <g>
+                                            <polygon
+                                                points={diente.protesisTotal.protesisTotalDerecho ? "0,60 80,60" : "null"}
+                                                fill="transparent"
+                                                stroke="red"
+                                                stroke-width="5"
+                                            />
+                                        </g>
+                                    </>
+                                    {/* edentuloTotal */}
+                                    <>
+                                        <g>
+                                            <polygon
+                                                points={diente.edentuloTotal.edentuloTotalIzquierdo ? "0,50 80,50" : "null"}
+                                                fill="transparent"
+                                                stroke="blue"
+                                                stroke-width="5"
+                                            />
+                                        </g>
+                                        <g>
+                                            <polygon
+                                                points={diente.edentuloTotal.edentuloTotalDerecho ? "0,50 80,50" : "null"}
+                                                fill="transparent"
+                                                stroke="blue"
+                                                stroke-width="5"
+                                            />
+                                        </g>
+                                    </>
+                                </svg>
+                                {/* Fin Parte todo el diente raiz-cento */}
+                            </Box>
+                        </Box>
 
                         {/* Parte encima de la parte central del diente (parte opuesta a la raiz) */}
                         <Box mt={0}>

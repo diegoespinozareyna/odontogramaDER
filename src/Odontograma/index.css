@@ -1,0 +1,4 @@
+.cursor {
+    /* cursor: url('borrador.png') 10 10, auto; */
+    cursor: cell;
+}
