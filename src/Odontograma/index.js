@@ -2105,7 +2105,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "top") {
+                    else if (key2 === "top") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2135,7 +2135,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "bottom") {
+                    else if (key2 === "bottom") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2165,7 +2165,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "left") {
+                    else if (key2 === "left") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2195,7 +2195,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "right") {
+                    else if (key2 === "right") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2226,7 +2226,7 @@ export default function Odontograma() {
                         })
                     }
                     // añadido para demas partes de dientes
-                    if (key2 === "topUpLeft") {
+                    else if (key2 === "topUpLeft") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2256,7 +2256,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "topUpRight") {
+                    else if (key2 === "topUpRight") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2286,7 +2286,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTop") {
+                    else if (key2 === "centerTop") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2316,7 +2316,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottom") {
+                    else if (key2 === "centerBottom") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2346,7 +2346,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTopLeft") {
+                    else if (key2 === "centerTopLeft") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2376,7 +2376,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTopRight") {
+                    else if (key2 === "centerTopRight") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2406,7 +2406,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottomLeft") {
+                    else if (key2 === "centerBottomLeft") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2436,7 +2436,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottomRight") {
+                    else if (key2 === "centerBottomRight") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2466,7 +2466,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTopCenterCenter") {
+                    else if (key2 === "centerTopCenterCenter") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2496,7 +2496,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTopCenterLeft") {
+                    else if (key2 === "centerTopCenterLeft") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2526,7 +2526,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTopCenterRight") {
+                    else if (key2 === "centerTopCenterRight") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2556,7 +2556,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottomCenterCenter") {
+                    else if (key2 === "centerBottomCenterCenter") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2586,7 +2586,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottomCenterLeft") {
+                    else if (key2 === "centerBottomCenterLeft") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2616,7 +2616,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottomCenterRight") {
+                    else if (key2 === "centerBottomCenterRight") {
                         arr.push({
                             ...item,
                             carie: {
@@ -2647,10 +2647,13 @@ export default function Odontograma() {
                         })
                     }
                     // fin añadido
-                    if (key2 === "") {
+                    else if (key2 === "") {
                         arr.push({
                             ...item,
                         })
+                    }
+                    else {
+                        arr.push(item)
                     }
                 }
                 else {
@@ -2896,7 +2899,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "top") {
+                    else if (key2 === "top") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -2926,7 +2929,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "bottom") {
+                    else if (key2 === "bottom") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -2956,7 +2959,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "left") {
+                    else if (key2 === "left") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -2986,7 +2989,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "right") {
+                    else if (key2 === "right") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -3017,7 +3020,7 @@ export default function Odontograma() {
                         })
                     }
                     // añadido para demas partes de dientes
-                    if (key2 === "topUpLeft") {
+                    else if (key2 === "topUpLeft") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -3047,7 +3050,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "topUpRight") {
+                    else if (key2 === "topUpRight") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -3077,7 +3080,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTop") {
+                    else if (key2 === "centerTop") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -3107,7 +3110,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottom") {
+                    else if (key2 === "centerBottom") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -3137,7 +3140,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTopLeft") {
+                    else if (key2 === "centerTopLeft") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -3167,7 +3170,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTopRight") {
+                    else if (key2 === "centerTopRight") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -3197,7 +3200,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottomLeft") {
+                    else if (key2 === "centerBottomLeft") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -3227,7 +3230,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottomRight") {
+                    else if (key2 === "centerBottomRight") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -3257,7 +3260,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTopCenterCenter") {
+                    else if (key2 === "centerTopCenterCenter") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -3287,7 +3290,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTopCenterLeft") {
+                    else if (key2 === "centerTopCenterLeft") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -3317,7 +3320,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTopCenterRight") {
+                    else if (key2 === "centerTopCenterRight") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -3347,7 +3350,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottomCenterCenter") {
+                    else if (key2 === "centerBottomCenterCenter") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -3377,7 +3380,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottomCenterLeft") {
+                    else if (key2 === "centerBottomCenterLeft") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -3407,7 +3410,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottomCenterRight") {
+                    else if (key2 === "centerBottomCenterRight") {
                         arr.push({
                             ...item,
                             restauracionTemporal: {
@@ -3438,10 +3441,13 @@ export default function Odontograma() {
                         })
                     }
                     // fin añadido
-                    if (key2 === "") {
+                    else if (key2 === "") {
                         arr.push({
                             ...item,
                         })
+                    }
+                    else {
+                        arr.push(item)
                     }
                 }
                 else {
@@ -3687,7 +3693,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "top") {
+                    else if (key2 === "top") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -3717,7 +3723,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "bottom") {
+                    else if (key2 === "bottom") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -3747,7 +3753,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "left") {
+                    else if (key2 === "left") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -3777,7 +3783,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "right") {
+                    else if (key2 === "right") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -3808,7 +3814,7 @@ export default function Odontograma() {
                         })
                     }
                     // añadido para demas partes de dientes
-                    if (key2 === "topUpLeft") {
+                    else if (key2 === "topUpLeft") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -3838,7 +3844,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "topUpRight") {
+                    else if (key2 === "topUpRight") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -3868,7 +3874,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTop") {
+                    else if (key2 === "centerTop") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -3898,7 +3904,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottom") {
+                    else if (key2 === "centerBottom") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -3928,7 +3934,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTopLeft") {
+                    else if (key2 === "centerTopLeft") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -3958,7 +3964,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTopRight") {
+                    else if (key2 === "centerTopRight") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -3988,7 +3994,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottomLeft") {
+                    else if (key2 === "centerBottomLeft") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -4018,7 +4024,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottomRight") {
+                    else if (key2 === "centerBottomRight") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -4048,7 +4054,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTopCenterCenter") {
+                    else if (key2 === "centerTopCenterCenter") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -4078,7 +4084,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTopCenterLeft") {
+                    else if (key2 === "centerTopCenterLeft") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -4108,7 +4114,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerTopCenterRight") {
+                    else if (key2 === "centerTopCenterRight") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -4138,7 +4144,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottomCenterCenter") {
+                    else if (key2 === "centerBottomCenterCenter") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -4168,7 +4174,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottomCenterLeft") {
+                    else if (key2 === "centerBottomCenterLeft") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -4198,7 +4204,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    if (key2 === "centerBottomCenterRight") {
+                    else if (key2 === "centerBottomCenterRight") {
                         arr.push({
                             ...item,
                             sellantes: {
@@ -4229,10 +4235,13 @@ export default function Odontograma() {
                         })
                     }
                     // fin añadido
-                    if (key2 === "") {
+                    else if (key2 === "") {
                         arr.push({
                             ...item,
                         })
+                    }
+                    else {
+                        arr.push(item)
                     }
                 }
                 else {

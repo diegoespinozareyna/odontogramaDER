@@ -617,68 +617,10 @@ export default function Diente5({
                                 />
                             </g>
                             <g>
-                                <polygon
-                                    points={diente.remanenteReticular.select ? "0,0 0,30 5,30 5,0 0,0" : "0,null 0,30 5,30 5,0 0,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="1"
-                                />
-                                <polygon
-                                    points={diente.remanenteReticular.select ? "0,0 20,0 20,5 0,5 0,0" : "0,null 20,0 20,5 0,5 0,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="1"
-                                />
-                                <polygon
-                                    points={diente.remanenteReticular.select ? "20,0 20,15 25,15 25,0 20,0" : "20,null 20,15 25,15 25,0 20,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="1"
-                                />
-                                <polygon
-                                    points={diente.remanenteReticular.select ? "0,10 0,15 25,15 25,10 0,10" : "0,null 0,15 25,15 25,10 0,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="1"
-                                />
-                                <polygon
-                                    points={diente.remanenteReticular.select ? "10,10 10,15 20,30 25,30 10,10" : "10,null 10,15 20,30 25,30 10,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="1"
-                                />
+                                <text x={diente.remanenteReticular.select ? "0" : 'null'} y={diente.remanenteReticular.select ? "35" : 'null'} font-family="Arial" font-size="45" stroke-width="5" fill="red">R</text>
                             </g>
                             <g>
-                                <polygon
-                                    points={diente.remanenteReticular.select ? "35,0 35,30 40,30 40,0 35,0" : "35,null 35,30 40,30 40,0 35,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="1"
-                                />
-                                <polygon
-                                    points={diente.remanenteReticular.select ? "35,0 55,0 55,5 35,5 35,0" : "35,null 55,0 55,5 35,5 35,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="1"
-                                />
-                                <polygon
-                                    points={diente.remanenteReticular.select ? "55,0 55,15 60,15 60,0 60,0" : "55,null 55,15 60,15 60,0 60,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="1"
-                                />
-                                <polygon
-                                    points={diente.remanenteReticular.select ? "35,10 35,15 60,15 60,10 35,10" : "35,null 35,15 60,15 60,10 35,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="1"
-                                />
-                                <polygon
-                                    points={diente.remanenteReticular.select ? "45,10 45,15 55,30 60,30 45,10" : "45,null 45,15 55,30 60,30 45,null"}
-                                    fill="red"
-                                    stroke="red"
-                                    stroke-width="1"
-                                />
+                                <text x={diente.remanenteReticular.select ? "30" : 'null'} y={diente.remanenteReticular.select ? "35" : 'null'} font-family="Arial" font-size="45" stroke-width="5" fill="red">R</text>
                             </g>
                             <g>
                                 <polygon
@@ -983,13 +925,13 @@ export default function Diente5({
                                 </g>
                                 <g>
                                     <polygon
-                                        points={diente.dienteExtraido.select ? "25,0 25,20 35,20 35,0 25,0" : "25,null 25,20 35,20 35,0 25,null"}
+                                        points={diente.dienteExtraido.select ? "25,0 25,15 35,15 35,0 25,0" : "25,null 25,20 35,20 35,0 25,null"}
                                         fill="blue"
                                         stroke="blue"
                                         stroke-width="1"
                                     />
                                     <polygon
-                                        points={diente.dienteExtraido.select ? "20,20 30,25 40,20 20,20" : "30,null 25,5 35,5 30,null"}
+                                        points={diente.dienteExtraido.select ? "20,15 30,20 40,15 20,15" : "30,null 25,5 35,5 30,null"}
                                         fill="blue"
                                         stroke="blue"
                                         stroke-width="1"

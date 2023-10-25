@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import React from 'react'
 import Selections from '../Selections'
 // import { diente1, diente2, diente3, diente4, diente5 } from '../dientesType/index';
@@ -31,9 +31,12 @@ export default function Dientes({
 }) {
     return (
         <>
-            <Box sx={{ display: "flex", position: "relative", zIndex: "1", border: "1px solid black", borderLeft: "none", borderRadius: "10px" }} >
-                <Box sx={{ border: "1px solid black", padding: "5px", borderRadius: "5px", marginLeft: "5px", minHeight: "600px" }}>
-                    <Selections handleSlection={handleSlection} selectExtra={selectExtra} handleSelectChange={handleSelectChange} />
+            <Box sx={{ display: "flex", border: "1px solid black", borderRadius: "10px" }} >
+                <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", justifyItems: "center", alignContent: "center", alignItems: "center" }}>
+                    <Box sx={{ position: "absolute", top: "30px" }}><Typography>Seleccione Opción Dental</Typography></Box>
+                    <Box sx={{ border: "1px solid black", padding: "5px", borderRadius: "5px", marginLeft: "5px", minHeight: "600px", transform: "scale(0.8)", position: "relative", zIndex: "1" }}>
+                        <Selections handleSlection={handleSlection} selectExtra={selectExtra} handleSelectChange={handleSelectChange} />
+                    </Box>
                 </Box>
                 <Box sx={{ display: "flex", flexDirection: "column", transform: "scale(0.6)", marginLeft: "-370px", marginTop: "-140px", border: "1px solid transparent", padding: "10px" }}>
                     <Box sx={{ display: "flex" }}>
