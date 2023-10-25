@@ -147,7 +147,7 @@ export default function Odontograma() {
 
                 setParte1(x => x.reduce((arr, item) => {
 
-                    if (item.id === tmp1 && item.aparatoOrtodonticoFijo.select) {
+                    if (item.id === tmp1 && item.aparatoOrtodonticoFijo.select && !item.eraser) {
                         arr.push({
                             ...item,
                             aparatoOrtodonticoFijo: {
@@ -157,7 +157,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    else if (item.id === tmp2 && item.aparatoOrtodonticoFijo.select) {
+                    else if (item.id === tmp2 && item.aparatoOrtodonticoFijo.select && !item.eraser) {
                         arr.push({
                             ...item,
                             aparatoOrtodonticoFijo: {
@@ -167,7 +167,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    else if ((item.id > tmp1 && item.id < tmp2) && item.aparatoOrtodonticoFijo.select) {
+                    else if ((item.id > tmp1 && item.id < tmp2) && item.aparatoOrtodonticoFijo.select && !item.eraser) {
                         arr.push({
                             ...item,
                             aparatoOrtodonticoFijo: {
@@ -176,7 +176,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    else if (item.id === tmp1 && item.protesisFija.select) {
+                    else if (item.id === tmp1 && item.protesisFija.select && !item.eraser) {
                         arr.push({
                             ...item,
                             protesisFija: {
@@ -186,7 +186,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    else if (item.id === tmp2 && item.protesisFija.select) {
+                    else if (item.id === tmp2 && item.protesisFija.select && !item.eraser) {
                         arr.push({
                             ...item,
                             protesisFija: {
@@ -196,7 +196,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    else if (item.id > tmp1 && item.id < tmp2 && item.protesisFija.select) {
+                    else if (item.id > tmp1 && item.id < tmp2 && item.protesisFija.select && !item.eraser) {
                         arr.push({
                             ...item,
                             protesisFija: {
@@ -221,7 +221,7 @@ export default function Odontograma() {
 
                 setParte1(x => x.reduce((arr, item) => {
 
-                    if (item.id === tmp1 && item.aparatoOrtodonticoFijo.select) {
+                    if (item.id === tmp1 && item.aparatoOrtodonticoFijo.select && !item.eraser) {
                         arr.push({
                             ...item,
                             aparatoOrtodonticoFijo: {
@@ -231,7 +231,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    else if (item.id === tmp2 && item.aparatoOrtodonticoFijo.select) {
+                    else if (item.id === tmp2 && item.aparatoOrtodonticoFijo.select && !item.eraser) {
                         arr.push({
                             ...item,
                             aparatoOrtodonticoFijo: {
@@ -241,7 +241,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    else if (item.id > tmp1 && item.id < tmp2 && item.aparatoOrtodonticoFijo.select) {
+                    else if (item.id > tmp1 && item.id < tmp2 && item.aparatoOrtodonticoFijo.select && !item.eraser) {
                         arr.push({
                             ...item,
                             aparatoOrtodonticoFijo: {
@@ -250,7 +250,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    else if (item.id === tmp1 && item.protesisFija.select) {
+                    else if (item.id === tmp1 && item.protesisFija.select && !item.eraser) {
                         arr.push({
                             ...item,
                             protesisFija: {
@@ -260,7 +260,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    else if (item.id === tmp2 && item.protesisFija.select) {
+                    else if (item.id === tmp2 && item.protesisFija.select && !item.eraser) {
                         arr.push({
                             ...item,
                             protesisFija: {
@@ -270,7 +270,7 @@ export default function Odontograma() {
                             }
                         })
                     }
-                    else if (item.id > tmp1 && item.id < tmp2 && item.protesisFija.select) {
+                    else if (item.id > tmp1 && item.id < tmp2 && item.protesisFija.select && !item.eraser) {
                         arr.push({
                             ...item,
                             protesisFija: {
@@ -296,7 +296,7 @@ export default function Odontograma() {
                 if (item.id === id) {
                     arr.push({
                         ...item,
-                        [key1]: {
+                        aparatoOrtodonticoFijo: {
                             ...item.aparatoOrtodonticoFijo,
                             select: false,
                             aparatoOrtodonticoFijoInicial: false,
@@ -309,11 +309,11 @@ export default function Odontograma() {
                     arr.push(item)
                 }
             }
-            if (key1 === 'protesisFija' && item.eraser === true) {
+            else if (key1 === 'protesisFija' && item.eraser === true) {
                 if (item.id === id) {
                     arr.push({
                         ...item,
-                        [key1]: {
+                        protesisFija: {
                             ...item.protesisFija,
                             select: false,
                             protesisFijaInicial: false,
