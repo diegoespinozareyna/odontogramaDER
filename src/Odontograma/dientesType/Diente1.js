@@ -330,7 +330,7 @@ export default function Diente1({
                             {/* Boton borrar */}
                             <Box sx={{ margin: "0 auto" }}>
                                 {
-                                    diente.eraser && diente.option !== "carie" && diente.option !== "restauracionTemporal" && diente.option !== "carie" && diente.option !== "restauracion" && diente.option !== "desgasteOclusalIncisal" && diente.option !== "dienteDiscromico" && diente.option !== "dienteEctopico" && diente.option !== "impactacion" && diente.option !== "implante" && diente.option !== "macrodoncia" && diente.option !== "microdoncia" && diente.option !== "semiImplantacion" &&
+                                    diente.eraser && diente.option !== "carie" && diente.option !== "restauracionTemporal" && diente.option !== "sellantes" && diente.option !== "restauracion" && diente.option !== "desgasteOclusalIncisal" && diente.option !== "dienteDiscromico" && diente.option !== "dienteEctopico" && diente.option !== "impactacion" && diente.option !== "implante" && diente.option !== "macrodoncia" && diente.option !== "microdoncia" && diente.option !== "semiImplantacion" && diente.option !== "dienteIntruido" && diente.option !== "dienteExtraido" && diente.option !== "dienteClavija" && diente.option !== "germinacion" &&
                                     <Box sx={{ zIndex: "99999" }} mt={0}>
                                         <IconButton
                                             color="primary"
