@@ -199,6 +199,7 @@ export default function Odontograma() {
                             aparatoOrtodonticoFijoMedio: false,
                         },
                     })
+                    setSelectedDates([])
                 }
                 else {
                     arr.push(item)
@@ -216,6 +217,7 @@ export default function Odontograma() {
                             protesisFijaMedio: false,
                         },
                     })
+                    setSelectedDates([])
                 }
                 else {
                     arr.push(item)
@@ -226,10 +228,11 @@ export default function Odontograma() {
             }
             return arr
         }, []))
+        setSelectedDates([])
     }
 
     const handleSelectionDoble = (id, key1) => {
-        console.log("llegue a seleccionar doble")
+        // console.log("llegue a seleccionar doble")
         setParte1(x => x.reduce((arr, item) => {
             if (item.id === id) {
                 arr.push({
@@ -257,10 +260,10 @@ export default function Odontograma() {
     }
 
     const handleSlection = (valor, valor2) => {
-        console.log("La seleción es: ", valor)
+        // console.log("La seleción es: ", valor)
         setParte1(x => x.reduce((arr, item) => {
             if (valor === 'eraser') {
-                console.log("entre a", valor)
+                // console.log("entre a", valor)
                 arr.push({
                     ...item,
                     eraser: true,
@@ -2100,6 +2103,7 @@ export default function Odontograma() {
                         select: false,
                     },
                 })
+                setSelectedDates([])
             }
             else if (valor === 'protesisFija') {
                 arr.push({
@@ -2147,6 +2151,7 @@ export default function Odontograma() {
                         select: true,
                     },
                 })
+                setSelectedDates([])
             }
             else {
                 arr.push(item)
@@ -2156,7 +2161,7 @@ export default function Odontograma() {
     }
 
     const hanleFunction = (id, key1, key2, key4) => {
-        
+
         setParte1(x => x.reduce((arr, item) => {
             if (key1 === 'carie' && item.eraser === false) {
                 if (item.id === id) {
@@ -4541,9 +4546,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'desgasteOclusalIncisal' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
                 if (item.id === id) {
                     arr.push({
                         ...item,
@@ -4576,8 +4581,8 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'dienteDiscromico' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
+                // console.log(key1)
+                // console.log(key2)
                 if (item.id === id) {
                     arr.push({
                         ...item,
@@ -4610,8 +4615,8 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'dienteEctopico' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
+                // console.log(key1)
+                // console.log(key2)
                 if (item.id === id) {
                     arr.push({
                         ...item,
@@ -4644,8 +4649,8 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'impactacion' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
+                // console.log(key1)
+                // console.log(key2)
                 if (item.id === id) {
                     arr.push({
                         ...item,
@@ -4678,8 +4683,8 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'implante' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
+                // console.log(key1)
+                // console.log(key2)
                 if (item.id === id) {
                     arr.push({
                         ...item,
@@ -4712,8 +4717,8 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'macrodoncia' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
+                // console.log(key1)
+                // console.log(key2)
                 if (item.id === id) {
                     arr.push({
                         ...item,
@@ -4746,8 +4751,8 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'microdoncia' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
+                // console.log(key1)
+                // console.log(key2)
                 if (item.id === id) {
                     arr.push({
                         ...item,
@@ -4780,8 +4785,8 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'semiImplantacion' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
+                // console.log(key1)
+                // console.log(key2)
                 if (item.id === id) {
                     arr.push({
                         ...item,
@@ -4814,8 +4819,8 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'coronaTemporal' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
+                // console.log(key1)
+                // console.log(key2)
                 if (item.id === id) {
                     arr.push({
                         ...item,
@@ -5885,9 +5890,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'remanenteReticular' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
                 if (item.id === id) {
                     arr.push({
                         ...item,
@@ -5916,9 +5921,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'dienteAusente' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
                 if (item.id === id) {
                     arr.push({
                         ...item,
@@ -5947,9 +5952,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'exodoncia' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
                 if (item.id === id) {
                     arr.push({
                         ...item,
@@ -5978,9 +5983,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'dienteClavija' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
                 if (item.id === id) {
                     arr.push({
                         ...item,
@@ -6009,9 +6014,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'dienteIntruido' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
                 if (item.id === id) {
                     arr.push({
                         ...item,
@@ -6040,9 +6045,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'dienteExtraido' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
                 if (item.id === id) {
                     arr.push({
                         ...item,
@@ -6101,9 +6106,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'germinacion' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
                 if (item.id === id) {
                     arr.push({
                         ...item,
@@ -6192,9 +6197,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'dienteErupcion' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
                 if (item.id === id) {
                     arr.push({
                         ...item,
@@ -6313,9 +6318,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'diastema' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
 
                 if (item.id === id) {
                     arr.push({
@@ -6347,9 +6352,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'fusion' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
 
                 if (item.id === id) {
                     arr.push({
@@ -6381,9 +6386,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'supernumerario' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
 
                 if (item.id === id) {
                     arr.push({
@@ -6415,9 +6420,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'transposicion' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
 
                 if (item.id === id) {
                     arr.push({
@@ -6449,9 +6454,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'aparatoOrtodonticoRemovible' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
 
                 if (item.id === id) {
                     arr.push({
@@ -6483,9 +6488,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'protesisRemovible' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
 
                 if (item.id === id) {
                     arr.push({
@@ -6517,9 +6522,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'protesisTotal' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
 
                 if (item.id === id) {
                     arr.push({
@@ -6551,9 +6556,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'edentuloTotal' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
 
                 if (item.id === id) {
                     arr.push({
@@ -6585,9 +6590,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'aparatoOrtodonticoFijo' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
 
                 if (item.id === id) {
                     arr.push({
@@ -6603,9 +6608,9 @@ export default function Odontograma() {
                 }
             }
             else if (key1 === 'protesisFija' && item.eraser === false) {
-                console.log(key1)
-                console.log(key2)
-                console.log(id)
+                // console.log(key1)
+                // console.log(key2)
+                // console.log(id)
 
                 if (item.id === id) {
                     arr.push({

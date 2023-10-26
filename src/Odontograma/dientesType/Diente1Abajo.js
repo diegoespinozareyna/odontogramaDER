@@ -1,5 +1,5 @@
 import { Box, IconButton } from '@mui/material'
-import React, { useEffect } from 'react'
+import React from 'react'
 import CloseIcon from '@mui/icons-material/Close';
 import CodeIcon from '@mui/icons-material/Code';
 
@@ -14,10 +14,10 @@ export default function Diente1Abajo({
     handleBorrarBracketsAndProtesisFija
 }) {
 
-    useEffect(() => {
-        console.log(selectExtra)
-        console.log(selectedDates)
-    }, [selectExtra, selectedDates])
+    // useEffect(() => {
+    //     console.log(selectExtra)
+    //     console.log(selectedDates)
+    // }, [selectExtra, selectedDates])
 
     return (
         <>
@@ -323,7 +323,7 @@ export default function Diente1Abajo({
                                             color="primary"
                                             onClick={() => {
                                                 handleBorrarBracketsAndProtesisFija(diente.id, diente.option)
-                                                console.log("boton borrar ACTIVADOOO")
+                                                // console.log("boton borrar ACTIVADOOO")
                                             }
                                             }
                                             size="small"

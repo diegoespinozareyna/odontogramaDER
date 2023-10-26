@@ -1,5 +1,5 @@
 import { Box, IconButton } from '@mui/material'
-import React, { useEffect } from 'react'
+import React from 'react'
 import CloseIcon from '@mui/icons-material/Close';
 import CodeIcon from '@mui/icons-material/Code';
 
@@ -10,14 +10,13 @@ export default function Diente4({
     selectedDates,
     handleDateClick,
     handleSelectionDoble,
-    handleMultipleInitial,
     handleBorrarBracketsAndProtesisFija
 }) {
 
-    useEffect(() => {
-        console.log(selectExtra)
-        console.log(selectedDates)
-    }, [selectExtra, selectedDates])
+    // useEffect(() => {
+    //     console.log(selectExtra)
+    //     console.log(selectedDates)
+    // }, [selectExtra, selectedDates])
 
     return (
         <>
@@ -304,7 +303,6 @@ export default function Diente4({
                                 </g>
                             </svg>
                         </Box>
-                        {console.log(diente.diastema.select)}
                         {
                             (diente.diastema.select || diente.fusion.select || diente.supernumerario.select || diente.transposicion.select || diente.aparatoOrtodonticoRemovible.select || diente.protesisRemovible.select || diente.protesisTotal.select || diente.edentuloTotal.select || diente.aparatoOrtodonticoFijo.select) &&
                             <Box sx={{ position: "absolute" }} mt={3.5} ml={6.2}>
@@ -327,7 +325,7 @@ export default function Diente4({
                                             color="primary"
                                             onClick={() => {
                                                 handleBorrarBracketsAndProtesisFija(diente.id, diente.option)
-                                                console.log("boton borrar ACTIVADOOO")
+                                                // console.log("boton borrar ACTIVADOOO")
                                             }
                                             }
                                             size="small"
