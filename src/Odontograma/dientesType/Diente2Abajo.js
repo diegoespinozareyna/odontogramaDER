@@ -6,7 +6,6 @@ import CodeIcon from '@mui/icons-material/Code';
 export default function Diente2({
     diente,
     hanleFunction,
-    hanleFunctionText,
     selectExtra,
     selectedDates,
     handleDateClick,

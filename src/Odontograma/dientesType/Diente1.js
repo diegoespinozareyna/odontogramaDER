@@ -6,7 +6,6 @@ import CloseIcon from '@mui/icons-material/Close';
 export default function Diente1({
     diente,
     hanleFunction,
-    hanleFunctionText,
     selectExtra,
     selectedDates,
     handleDateClick,

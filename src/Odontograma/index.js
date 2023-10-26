@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Dientes from './dientes/Dientes'
 import { Box } from '@mui/material'
-import { block1, block2, block3, block4 } from './objetos'
+import { block1 } from './objetos'
 
 export default function Odontograma() {
 
     const [parte1, setParte1] = useState(block1)
-    const [parte2] = useState(block2)
-    const [parte3] = useState(block3)
-    const [parte4] = useState(block4)
 
     const [selectExtra, setSelectExtra] = useState('') // key4
     const [selectedDates, setSelectedDates] = useState([]); // para seleccion multiple
@@ -28,108 +25,6 @@ export default function Odontograma() {
         }
     }
 
-    // const handleMultipleInitial = () => {
-
-    //     console.log(selectedDates)
-    //     let tmp1 = 0
-    //     let tmp2 = 0
-
-    //     if (selectedDates.length === 2) {
-
-    //         if (selectedDates[0] > selectedDates[1]) {
-    //             tmp1 = selectedDates[1]
-    //             tmp2 = selectedDates[0]
-
-
-    //             setParte1(x => x.reduce((arr, item) => {
-
-    //                 if (item.id === tmp1) {
-    //                     arr.push({
-    //                         ...item,
-    //                         aparatoOrtodonticoFijo: {
-    //                             ...item.aparatoOrtodonticoFijo,
-    //                             aparatoOrtodonticoFijoInicial: true,
-    //                             aparatoOrtodonticoFijoMedio: false,
-    //                         }
-    //                     })
-    //                 }
-    //                 else if (item.id === tmp2) {
-    //                     arr.push({
-    //                         ...item,
-    //                         aparatoOrtodonticoFijo: {
-    //                             ...item.aparatoOrtodonticoFijo,
-    //                             aparatoOrtodonticoFijoFinal: true,
-    //                             aparatoOrtodonticoFijoMedio: false,
-    //                         }
-    //                     })
-    //                 }
-    //                 // else if (item.id === id) {
-    //                 //     arr.push({
-    //                 //         ...item,
-    //                 //         aparatoOrtodonticoFijo: {
-    //                 //             ...item.aparatoOrtodonticoFijo,
-    //                 //             aparatoOrtodonticoFijoMedio: true,
-    //                 //             select: false,
-    //                 //         }
-    //                 //     })
-    //                 // }
-    //                 else {
-    //                     arr.push({
-    //                         ...item,
-    //                         aparatoOrtodonticoFijo: {
-    //                             ...item.aparatoOrtodonticoFijo,
-    //                             aparatoOrtodonticoFijoMedio: true,
-    //                             select: false,
-    //                         }
-    //                     })
-    //                 }
-
-    //                 return arr
-    //             }, []))
-    //         }
-    //         if (selectedDates[1] > selectedDates[0]) {
-    //             tmp1 = selectedDates[0]
-    //             tmp2 = selectedDates[1]
-
-    //             setParte1(x => x.reduce((arr, item) => {
-
-    //                 if (item.id === tmp1) {
-    //                     arr.push({
-    //                         ...item,
-    //                         aparatoOrtodonticoFijo: {
-    //                             ...item.aparatoOrtodonticoFijo,
-    //                             aparatoOrtodonticoFijoInicial: true,
-    //                             aparatoOrtodonticoFijoMedio: false,
-    //                         }
-    //                     })
-    //                 }
-    //                 else if (item.id === tmp2) {
-    //                     arr.push({
-    //                         ...item,
-    //                         aparatoOrtodonticoFijo: {
-    //                             ...item.aparatoOrtodonticoFijo,
-    //                             aparatoOrtodonticoFijoFinal: true,
-    //                             aparatoOrtodonticoFijoMedio: false,
-    //                         }
-    //                     })
-    //                 }
-    //                 else {
-    //                     arr.push({
-    //                         ...item,
-    //                         aparatoOrtodonticoFijo: {
-    //                             ...item.aparatoOrtodonticoFijo,
-    //                             aparatoOrtodonticoFijoMedio: true,
-    //                             select: false,
-    //                         }
-    //                     })
-    //                 }
-
-    //                 return arr
-    //             }, []))
-    //         }
-    //         setSelectedDates([])
-    //     }
-    // }
 
     useEffect(() => {
         console.log(selectedDates)
@@ -2260,16 +2155,8 @@ export default function Odontograma() {
         }, []))
     }
 
-    useEffect(() => {
-        console.log(selectExtra)
-    }, [selectExtra])
-
     const hanleFunction = (id, key1, key2, key4) => {
-        // console.log("La seleción es: ", valor)
-        console.log(key1)
-        console.log(key2)
-        console.log(key4)
-        console.log(id)
+        
         setParte1(x => x.reduce((arr, item) => {
             if (key1 === 'carie' && item.eraser === false) {
                 if (item.id === id) {
@@ -6733,146 +6620,6 @@ export default function Odontograma() {
                     arr.push(item)
                 }
             }
-            // else if (key1 === 'aparatoOrtodonticoFijo' && item.eraser === true) {
-            //     if (item.id === id) {
-            //         arr.push({
-            //             ...item,
-            //             [key1]: {
-            //                 ...item.aparatoOrtodonticoFijo,
-            //                 select: false,
-            //                 aparatoOrtodonticoFijoInicial: false,
-            //                 aparatoOrtodonticoFijoFinal: false,
-            //                 aparatoOrtodonticoFijoMedio: false,
-            //             },
-            //         })
-            //     }
-            //     else {
-            //         arr.push(item)
-            //     }
-            // }
-            else {
-                arr.push(item)
-            }
-            return arr
-        }, []))
-    }
-
-    const hanleFunctionText = (id, key1, key2) => {
-        setParte1(x => x.reduce((arr, item) => {
-            if (key1 === 'restauracionTemporal' && item.eraser === false) {
-                if (item.id === id) {
-                    if (key2 === "topUp") {
-                        arr.push({
-                            ...item,
-                            restauracionTemporal: {
-                                ...item.restauracionTemporal,
-                                select: true,
-                                [key2]: true
-                            }
-                        })
-                    }
-                    if (key2 === "top") {
-                        arr.push({
-                            ...item,
-                            restauracionTemporal: {
-                                ...item.restauracionTemporal,
-                                select: true,
-                                [key2]: true
-                            }
-                        })
-                    }
-                    if (key2 === "bottom") {
-                        arr.push({
-                            ...item,
-                            restauracionTemporal: {
-                                ...item.restauracionTemporal,
-                                select: true,
-                                [key2]: true
-                            }
-                        })
-                    }
-                    if (key2 === "left") {
-                        arr.push({
-                            ...item,
-                            restauracionTemporal: {
-                                ...item.restauracionTemporal,
-                                select: true,
-                                [key2]: true
-                            }
-                        })
-                    }
-                    if (key2 === "right") {
-                        arr.push({
-                            ...item,
-                            restauracionTemporal: {
-                                ...item.restauracionTemporal,
-                                select: true,
-                                [key2]: true
-                            }
-                        })
-                    }
-                }
-                else {
-                    arr.push(item)
-                }
-            }
-            else if (key1 === 'restauracionTemporal' && item.eraser === true) {
-                if (item.id === id) {
-                    if (key2 === "topUp") {
-                        arr.push({
-                            ...item,
-                            restauracionTemporal: {
-                                ...item.restauracionTemporal,
-                                select: false,
-                                [key2]: false
-                            }
-                        })
-                    }
-                    if (key2 === "top") {
-                        arr.push({
-                            ...item,
-                            restauracionTemporal: {
-                                ...item.restauracionTemporal,
-                                select: false,
-                                [key2]: false
-                            }
-                        })
-                    }
-                    if (key2 === "bottom") {
-                        arr.push({
-                            ...item,
-                            restauracionTemporal: {
-                                ...item.restauracionTemporal,
-                                select: false,
-                                [key2]: false
-                            }
-                        })
-                    }
-                    if (key2 === "left") {
-                        arr.push({
-                            ...item,
-                            restauracionTemporal: {
-                                ...item.restauracionTemporal,
-                                select: false,
-                                [key2]: false
-                            }
-                        })
-                    }
-                    if (key2 === "right") {
-                        arr.push({
-                            ...item,
-                            restauracionTemporal: {
-                                ...item.restauracionTemporal,
-                                select: false,
-                                [key2]: false
-                            }
-                        })
-                    }
-                }
-                else {
-                    arr.push(item)
-                }
-            }
             else {
                 arr.push(item)
             }
@@ -6889,12 +6636,8 @@ export default function Odontograma() {
             <Box sx={{ transform: "scale(1)", margin: "1rem" }}>
                 <Dientes
                     parte1={parte1}
-                    parte2={parte2}
-                    parte3={parte3}
-                    parte4={parte4}
                     handleSlection={handleSlection}
                     hanleFunction={hanleFunction}
-                    hanleFunctionText={hanleFunctionText}
                     selectExtra={selectExtra}
                     handleSelectChange={handleSelectChange}
                     selectedDates={selectedDates}
